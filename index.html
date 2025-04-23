@@ -33,6 +33,18 @@
     }
     </script>
     
+    <!-- Delight Purple Font -->
+    <style>
+        @font-face {
+            font-family: 'Delight Purple';
+            src: url('fonts/Delight Purple.otf') format('opentype'),
+                 url('fonts/Delight Purple.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+        }
+    </style>
+    
     <!-- Tailwind CSS via CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -40,22 +52,22 @@
             theme: {
                 extend: {
                     colors: {
-                        frogPurple: '#6B46C1',    // Viola più professionale
-                        frogLavender: '#A78BFA',  // Lavanda più soft
-                        frogIndigo: '#4338CA',    // Indigo più professionale
-                        frogBright: '#8B5CF6',    // Viola brillante più elegante
-                        frogYellow: '#FBBF24',    // Giallo cartoon (mantenuto)
-                        frogPink: '#EC4899',      // Rosa cartoon (mantenuto)
-                        frogAccent: '#34D399',    // Verde acqua per accenti
-                        frogDark: '#312E81',      // Viola scuro per sfondi
+                        frogLight: '#C8A2C8',    // Viola chiaro per pulsanti
+                        frogMedium: '#6A0DAD',   // Viola medio per sfondi primari
+                        frogDark: '#4B0076',     // Viola scuro per sfondi secondari
+                        frogWhite: '#FFFFFF',    // Bianco per testo su sfondo scuro
+                        frogBlack: '#000000',    // Nero per testo su sfondo chiaro
                     },
                     borderRadius: {
                         'cartoon': '2rem',
                     },
                     boxShadow: {
-                        'cartoon': '0.5rem 0.5rem 0 #A78BFA',
+                        'cartoon': '0.5rem 0.5rem 0 #4B0076',
                         'cartoon-inner': 'inset 0.25rem 0.25rem 0 rgba(255,255,255,0.2), inset -0.25rem -0.25rem 0 rgba(0,0,0,0.2)'
                     },
+                    fontFamily: {
+                        'delight': ['"Delight Purple"', 'cursive'],
+                    }
                 }
             }
         }
@@ -80,14 +92,14 @@
         }
         
         body {
-            font-family: 'Nunito', sans-serif;
-            background-color: #312E81;
+            font-family: 'Delight Purple', sans-serif;
+            background-color: #4B0076; /* Melanzana Profondo */
             background-image: url('INSERISCI-URL-IMMAGINE-SFONDO.jpg');
             background-size: cover;
             background-repeat: no-repeat;
             background-attachment: fixed;
             background-position: center;
-            color: white;
+            color: #FFFFFF; /* Testo bianco per contrasto */
         }
         
         section {
@@ -102,19 +114,22 @@
         h1, h2, h3, .pixel-font {
             font-family: 'Fredoka One', cursive;
             letter-spacing: 2px;
-            text-shadow: 3px 3px 0px #4338CA;
+            text-shadow: 3px 3px 0px #4B0076; /* Melanzana Profondo */
+            color: #FFFFFF; /* Testo bianco per titoli */
         }
         
-        p, li, a, button, input, label, span {
-            font-family: 'Patrick Hand', cursive;
+        p, li, a, input, label, span, div:not(h1):not(h2):not(h3):not(.pixel-font) {
+            font-family: 'Delight Purple', sans-serif;
+            color: #FFFFFF; /* Testo bianco per altri elementi */
         }
         
         .btn {
             transition: all 0.2s ease;
             transform-origin: center;
-            border: 3px solid white;
+            border: 3px solid #FFFFFF;
             box-shadow: 0.35rem 0.35rem 0 rgba(0,0,0,0.4);
-            font-family: 'Bubblegum Sans', cursive;
+            font-family: 'Delight Purple', cursive;
+            color: #FFFFFF; /* Testo bianco per i pulsanti */
         }
         
         .btn:hover {
@@ -128,7 +143,7 @@
         }
         
         .cartoon-border {
-            border: 4px solid white;
+            border: 4px solid #FFFFFF;
             border-radius: 1.5rem;
             box-shadow: 0.5rem 0.5rem 0 rgba(0,0,0,0.4);
         }
@@ -201,7 +216,7 @@
         }
         
         .progress-bar {
-            background: linear-gradient(90deg, #9333EA 0%, #C084FC 100%);
+            background: linear-gradient(90deg, #6A0DAD 0%, #C8A2C8 100%);
             height: 100%;
             border-radius: 1.25rem;
             transition: width 0.4s ease;
@@ -211,7 +226,7 @@
             color: white;
             font-weight: bold;
             box-shadow: inset 0.25rem 0.25rem 0 rgba(255,255,255,0.2), inset -0.25rem -0.25rem 0 rgba(0,0,0,0.2);
-            text-shadow: 2px 2px 0 #4C1D95;
+            text-shadow: 2px 2px 0 #4B0076;
         }
 
         /* Stile a pallini per le liste */
@@ -229,13 +244,13 @@
             transform: translateY(-50%);
             width: 12px;
             height: 12px;
-            background-color: #FBBF24;
+            background-color: #C8A2C8;
             border-radius: 50%;
         }
         
         /* Sezioni personalizzate con sfondi diversi */
         #hero {
-            background-image: url('INSERISCI-URL-IMMAGINE-HERO.jpg');
+            background-image: url('immagine 1.png');
             background-size: cover;
             background-position: center;
             position: relative;
@@ -248,7 +263,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: rgba(51, 44, 129, 0.7); /* Aggiornato con frogDark */
+            background: rgba(75, 0, 118, 0.7); /* Viola scuro con opacità */
             z-index: 1;
         }
         
@@ -324,7 +339,7 @@
             left: -8px;
             right: -8px;
             bottom: -8px;
-            border: 2px dashed #FBBF24;
+            border: 2px dashed #FFFFFF;
             border-radius: 2rem;
             z-index: -1;
             pointer-events: none;
@@ -338,25 +353,45 @@
         /* Bubble speech per disclaimer */
         .speech-bubble {
             position: relative;
-            background: #6B46C1; /* Aggiornato con frogPurple */
+            background: #6A0DAD; /* frogMedium */
             border-radius: 1.5rem;
-            border: 4px solid white;
+            border: 4px solid #FFFFFF;
             box-shadow: 0.5rem 0.5rem 0 rgba(0,0,0,0.4);
-            clip-path: polygon(
-                0% 0%, 
-                100% 0%, 
-                100% 85%, 
-                85% 85%, 
-                70% 100%, 
-                70% 85%, 
-                0% 85%
-            );
-            padding-bottom: 2rem;
+            /* Rimuovo il clip-path che taglia il contenuto */
+            padding: 1.5rem;
+            margin-bottom: 2.5rem;
+            overflow: visible;
+        }
+        
+        .speech-bubble:before {
+            content: "";
+            position: absolute;
+            bottom: -20px;
+            left: 40px;
+            border-width: 20px 0 0 20px;
+            border-style: solid;
+            border-color: #FFFFFF transparent transparent transparent;
+            display: block;
+            width: 0;
+            z-index: 1;
+        }
+        
+        .speech-bubble:after {
+            content: "";
+            position: absolute;
+            bottom: -12px;
+            left: 44px;
+            border-width: 16px 0 0 16px;
+            border-style: solid;
+            border-color: #6A0DAD transparent transparent transparent; /* frogMedium */
+            display: block;
+            width: 0;
+            z-index: 2;
         }
         
         /* Stile per le card principali */
         .fancy-box {
-            border: 4px solid white;
+            border: 4px solid #FFFFFF;
             border-radius: 1.5rem;
             position: relative;
             box-shadow: 0.5rem 0.5rem 0 rgba(0,0,0,0.4);
@@ -370,7 +405,7 @@
             left: 0;
             right: 0;
             height: 6px;
-            background: linear-gradient(90deg, #FBBF24, #EC4899, #34D399, #FBBF24);
+            background: linear-gradient(90deg, #6A0DAD, #C8A2C8, #FFFFFF, #6A0DAD);
             background-size: 300% 100%;
             animation: gradientBorder 3s ease infinite;
         }
@@ -384,7 +419,7 @@
         /* Stile per riquadri a zig-zag */
         .zigzag-box {
             position: relative;
-            background: #4338CA;
+            background: #6A0DAD; /* frogMedium */
             padding: 1.5rem;
             margin: 2rem 0;
         }
@@ -396,8 +431,8 @@
             left: 0;
             right: 0;
             height: 15px;
-            background: linear-gradient(-45deg, #4338CA 7px, transparent 0), 
-                        linear-gradient(45deg, #4338CA 7px, transparent 0);
+            background: linear-gradient(-45deg, #6A0DAD 7px, transparent 0), 
+                        linear-gradient(45deg, #6A0DAD 7px, transparent 0);
             background-position: left top;
             background-repeat: repeat-x;
             background-size: 15px 15px;
@@ -410,8 +445,8 @@
             left: 0;
             right: 0;
             height: 15px;
-            background: linear-gradient(-45deg, transparent 7px, #4338CA 0), 
-                        linear-gradient(45deg, transparent 7px, #4338CA 0);
+            background: linear-gradient(-45deg, transparent 7px, #6A0DAD 0), 
+                        linear-gradient(45deg, transparent 7px, #6A0DAD 0);
             background-position: left bottom;
             background-repeat: repeat-x;
             background-size: 15px 15px;
@@ -421,7 +456,7 @@
         .animated-border-box {
             position: relative;
             border-radius: 1.5rem;
-            background: #312E81;
+            background: #4B0076; /* frogDark */
             z-index: 0;
             padding: 1.5rem;
             overflow: hidden;
@@ -435,10 +470,10 @@
             top: -50%;
             width: 200%;
             height: 200%;
-            background-color: #6B46C1;
+            background-color: #6A0DAD; /* frogMedium */
             background-repeat: no-repeat;
             background-position: 0 0;
-            background-image: conic-gradient(transparent, #FBBF24, transparent 30%);
+            background-image: conic-gradient(transparent, #FFFFFF, transparent 30%);
             animation: rotate 4s linear infinite;
         }
         
@@ -450,7 +485,7 @@
             top: 6px;
             width: calc(100% - 12px);
             height: calc(100% - 12px);
-            background: #312E81;
+            background: #4B0076; /* frogDark */
             border-radius: 1.2rem;
         }
         
@@ -479,13 +514,13 @@
             transform: translateY(-50%);
             width: 12px;
             height: 12px;
-            background-color: #FBBF24;
+            background-color: #C8A2C8;
             border-radius: 50%;
         }
         
         /* Sezioni personalizzate con sfondi diversi */
         #hero {
-            background-image: url('INSERISCI-URL-IMMAGINE-HERO.jpg');
+            background-image: url('immagine 1.png');
             background-size: cover;
             background-position: center;
             position: relative;
@@ -498,7 +533,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: rgba(51, 44, 129, 0.7); /* Aggiornato con frogDark */
+            background: rgba(75, 0, 118, 0.7); /* Viola scuro con opacità */
             z-index: 1;
         }
         
@@ -569,9 +604,9 @@
         /* Bubble speech per disclaimer */
         .speech-bubble {
             position: relative;
-            background: #6B46C1; /* Aggiornato con frogPurple */
+            background: #6A0DAD; /* frogMedium */
             border-radius: 1.5rem;
-            border: 4px solid white;
+            border: 4px solid #FFFFFF;
             box-shadow: 0.5rem 0.5rem 0 rgba(0,0,0,0.4);
         }
         
@@ -594,7 +629,7 @@
             left: 44px;
             border-width: 16px 0 0 16px;
             border-style: solid;
-            border-color: #6B46C1 transparent transparent transparent; /* Aggiornato con frogPurple */
+            border-color: #6A0DAD transparent transparent transparent; /* frogMedium */
             display: block;
             width: 0;
         }
@@ -624,7 +659,7 @@
         
         /* Sezioni personalizzate con sfondi diversi */
         #hero {
-            background-image: url('INSERISCI-URL-IMMAGINE-HERO.jpg');
+            background-image: url('immagine 1.png');
             background-size: cover;
             background-position: center;
             position: relative;
@@ -632,17 +667,17 @@
         
         /* Bubble button styles with 3D effect */
         .bubble-btn {
-            background-color: #FBBF24;
-            color: #312E81;
-            border: 3px solid white;
+            background-color: #C8A2C8; /* frogLight */
+            color: #4B0076; /* frogDark */
+            border: 3px solid #FFFFFF;
             border-radius: 999px;
             padding: 0.75rem 1.5rem;
-            font-family: 'Bubblegum Sans', cursive;
+            font-family: 'Delight Purple', cursive;
             font-size: 1.25rem;
             position: relative;
             transform-style: preserve-3d;
             transition: transform 0.2s, box-shadow 0.2s;
-            box-shadow: 0 6px 0 #c47500, 0 8px 10px rgba(0,0,0,0.3);
+            box-shadow: 0 6px 0 #4B0076, 0 8px 10px rgba(0,0,0,0.3);
             text-shadow: 1px 1px 0 rgba(0,0,0,0.2);
             overflow: hidden;
         }
@@ -661,18 +696,18 @@
         
         .bubble-btn:hover {
             transform: translateY(-3px);
-            box-shadow: 0 9px 0 #c47500, 0 12px 15px rgba(0,0,0,0.3);
+            box-shadow: 0 9px 0 #4B0076, 0 12px 15px rgba(0,0,0,0.3);
         }
         
         .bubble-btn:active {
             transform: translateY(3px);
-            box-shadow: 0 3px 0 #c47500, 0 4px 5px rgba(0,0,0,0.3);
+            box-shadow: 0 3px 0 #4B0076, 0 4px 5px rgba(0,0,0,0.3);
         }
         
         /* Jelly button */
         .jelly-btn {
-            background-color: #34D399;
-            color: white;
+            background-color: #6A0DAD; /* frogMedium */
+            color: #FFFFFF;
             border: none;
             border-radius: 12px;
             padding: 0.75rem 1.5rem;
@@ -680,7 +715,7 @@
             text-transform: uppercase;
             position: relative;
             transition: all 0.2s;
-            box-shadow: 0 4px 0 #0f9b6c;
+            box-shadow: 0 4px 0 #4B0076; /* frogDark */
             cursor: pointer;
             overflow: hidden;
         }
@@ -698,15 +733,15 @@
         
         .jelly-btn:active {
             top: 4px;
-            box-shadow: 0 0 0 #0f9b6c;
+            box-shadow: 0 0 0 #4B0076;
         }
         
         /* Rainbow button */
         .rainbow-btn {
-            background: linear-gradient(90deg, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #8b00ff, #ff0000);
+            background: linear-gradient(90deg, #6A0DAD, #C8A2C8, #FFFFFF, #6A0DAD);
             background-size: 400% 400%;
             animation: rainbow 3s ease infinite;
-            color: white;
+            color: #4B0076;
             font-weight: bold;
             border: none;
             border-radius: 8px;
@@ -724,7 +759,7 @@
             left: 2px;
             right: 2px;
             bottom: 2px;
-            background: #312E81;
+            background: #4B0076; /* frogDark */
             border-radius: 6px;
             z-index: -1;
         }
@@ -779,169 +814,197 @@
             100% { transform: rotateY(720deg); }
         }
     </style>
+    
+    <!-- CSS update for all buttons -->
+    <style>
+        .bubble-btn, .jelly-btn, .btn-primary, .btn-secondary, .rainbow-btn, .amount-btn {
+            background-color: #C8A2C8; /* frogLight - Viola chiaro per pulsanti */
+            color: #4B0076; /* frogDark - Testo viola scuro sui pulsanti */
+            transition: all 0.3s ease;
+        }
+        
+        .bubble-btn:hover, .jelly-btn:hover, .btn-primary:hover, .btn-secondary:hover, .rainbow-btn:hover, .amount-btn:hover {
+            background-color: #AA8DAA; /* Una versione più scura del viola chiaro per hover */
+            transform: translateY(-2px);
+        }
+    </style>
 </head>
 <body>
     <!-- Modal Disclaimer (NFA/DYOR) -->
     <div id="disclaimerModal" class="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50">
-        <div class="speech-bubble bg-frogPurple p-6 max-w-md mx-4">
-            <h2 class="text-frogYellow text-2xl mb-4 pixel-font">RIBBIT! DISCLAIMER</h2>
-            <p class="mb-4 text-lg">$FROGGLE is a meme coin with no intrinsic value or financial expectation.</p>
-            <p class="mb-4">This is <span class="font-bold text-frogYellow">NOT FINANCIAL ADVICE</span>. Please <span class="font-bold text-frogYellow">DO YOUR OWN RESEARCH</span> before participating.</p>
-            <button id="acceptDisclaimer" class="w-full bg-frogYellow hover:bg-frogPink text-frogIndigo font-bold py-2 px-4 rounded-cartoon btn">
+        <div class="speech-bubble bg-frogMedium max-w-md mx-4">
+            <h2 class="text-white text-2xl mb-4 pixel-font">RIBBIT! DISCLAIMER</h2>
+            <p class="mb-4 text-lg text-white">$FROGGLE is a meme coin with no intrinsic value or financial expectation.</p>
+            <p class="mb-4 text-white">This is <span class="font-bold text-white">NOT FINANCIAL ADVICE</span>. Please <span class="font-bold text-white">DO YOUR OWN RESEARCH</span> before participating.</p>
+            <button id="acceptDisclaimer" class="w-full bg-frogLight hover:bg-opacity-80 text-frogDark font-bold py-2 px-4 rounded-cartoon btn">
                 I UNDERSTAND, LET'S RIBBIT!
             </button>
         </div>
     </div>
 
     <!-- Navigation -->
-    <nav class="fixed top-0 left-0 right-0 bg-frogIndigo bg-opacity-90 z-40 border-b-4 border-frogPink">
-        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
-            <a href="#hero" class="text-frogYellow font-bold text-2xl pixel-font">$FROGGLE</a>
-            <div class="flex space-x-4">
-                <a href="#presale" class="text-white hover:text-frogYellow">Presale</a>
-                <a href="#minigame" class="text-white hover:text-frogYellow">Mini-Game</a>
-                <a href="#tokenomics" class="text-white hover:text-frogYellow">Tokenomics</a>
-                <a href="#howtoclaim" class="text-white hover:text-frogYellow">How to Claim</a>
-                <button id="connectWalletBtn" class="bg-frogYellow text-frogIndigo px-4 py-1 rounded-full font-bold hover:bg-frogPink btn">Connect Wallet</button>
+    <nav class="fixed top-0 left-0 right-0 bg-frogMedium z-40 border-b-4 border-frogLight">
+        <div class="container mx-auto px-4 py-3 flex flex-col md:flex-row justify-center items-center">
+            <a href="#hero" class="text-white font-bold text-2xl pixel-font mb-2 md:mb-0 md:absolute md:left-4">$FROGGLE</a>
+            <div class="flex space-x-6 md:space-x-8 justify-center mx-auto">
+                <a href="#presale" class="text-white hover:text-frogLight text-lg md:text-xl font-bold">Presale</a>
+                <a href="#tokenomics" class="text-white hover:text-frogLight text-lg md:text-xl font-bold">Tokenomics</a>
+                <a href="#howtoclaim" class="text-white hover:text-frogLight text-lg md:text-xl font-bold">How to Claim</a>
+            </div>
+            <div class="mt-2 md:mt-0 md:absolute md:right-4">
+                <button id="connectWalletBtn" class="bg-frogLight text-frogDark px-4 py-1 rounded-full font-bold hover:bg-opacity-80 btn">Connect Wallet</button>
             </div>
         </div>
+        <!-- Sfondo decorativo sotto il menu -->
+        <div class="h-2 bg-gradient-to-r from-frogLight via-white to-frogLight"></div>
     </nav>
 
     <!-- Hero Section -->
-    <section class="bg-gradient-to-r from-purple-900 to-indigo-900 text-white py-20 px-4" style="background-image: url('sfondo1.png'); background-size: cover; background-position: center; position: relative;">
-        <!-- Overlay scuro per migliorare la leggibilità del testo -->
-        <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background-color: rgba(76, 29, 149, 0.7);"></div>
+    <section class="bg-gradient-to-r from-purple-900 to-indigo-900 text-white py-20 px-4" style="background-image: url('immagine 1.png'); background-size: cover; background-position: center; position: relative;">
+        <!-- Overlay con trasparenza bassa per migliorare la leggibilità del testo -->
+        <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background-color: rgba(76, 29, 149, 0.4);"></div>
         
-        <div class="container mx-auto text-center relative z-10">
-            <h1 class="text-5xl md:text-6xl font-bold mb-4">$FROGGLE</h1>
-            <p class="text-xl md:text-2xl mb-8">La moneta meme numero 1 sulla blockchain Solana</p>
-            
-            <!-- Wallet Connection -->
-            <div class="mb-8 p-6 fancy-box max-w-md mx-auto" style="background-color: rgba(107, 70, 193, 0.8);">
-                <h2 class="text-2xl font-bold mb-4">Connetti il tuo Wallet</h2>
-                
-                <div id="walletNotConnected">
-                    <button id="connectWalletBtn" class="bubble-btn">
-                        Connetti Wallet
-                    </button>
-                </div>
-                
-                <div id="walletConnected" class="hidden">
-                    <div class="flex justify-between items-center mb-4">
-                        <div>
-                            <span class="font-bold">Indirizzo:</span>
-                            <span id="walletAddress" class="ml-2 font-mono bg-purple-900 px-2 py-1 rounded">...</span>
-                        </div>
-                    </div>
-                    <div class="flex justify-between items-center">
-                        <div>
-                            <span class="font-bold">SOL:</span>
-                            <span id="walletBalance" class="ml-2 font-mono bg-purple-900 px-2 py-1 rounded">...</span>
-                        </div>
-                        <div>
-                            <span class="font-bold">FROGGLE:</span>
-                            <span id="tokenBalance" class="ml-2 font-mono bg-purple-900 px-2 py-1 rounded">0</span>
-                        </div>
-                    </div>
+        <div class="container mx-auto relative z-10">
+            <div class="flex justify-end">
+                <div class="max-w-md flex flex-col items-center md:items-end text-center md:text-right mr-0 md:mr-8 lg:mr-16">
+                    <h1 class="text-5xl md:text-6xl font-bold mb-4 text-white">$FROGGLE</h1>
+                    <p class="text-xl md:text-2xl mb-8 text-white">La moneta meme numero 1 sulla blockchain Solana</p>
+                    
+                    <a href="#presale" class="bubble-btn w-full bg-frogFuchsia text-white">
+                        Partecipa al Presale
+                    </a>
                 </div>
             </div>
-            
-            <a href="#presale" class="bubble-btn">
-                Partecipa al Presale
-            </a>
         </div>
     </section>
 
     <!-- Presale Section -->
-    <section id="presale">
-        <div class="container mx-auto">
-            <h2 class="text-4xl text-center mb-12 text-frogYellow pixel-font">RIBBIT & BUY</h2>
-            
-            <!-- Progress Bar -->
-            <div class="max-w-3xl mx-auto mb-12">
-                <div class="flex justify-between mb-2 text-xl">
-                    <span class="text-frogYellow">0 FROGGLE</span>
-                    <span class="text-frogYellow">400M FROGGLE</span>
-                </div>
-                <div class="progress-container">
-                    <div id="presaleProgress" class="progress-bar" style="width: 0%;">0%</div>
-                </div>
-                <div class="flex justify-between mt-2 text-lg">
-                    <span class="text-white">Tokens Sold: <span id="tokensSold">0</span> FROGGLE</span>
-                    <span class="text-white">Hard Cap: 400M FROGGLE</span>
-                </div>
-            </div>
-            
-            <!-- Early Bird Banner -->
-            <div class="speech-bubble bg-frogYellow text-frogIndigo p-6 max-w-3xl mx-auto mb-12">
-                <p class="font-bold text-center text-xl">🔥 Early Bird Special: 15% Bonus on First 50M Tokens! 🔥</p>
-            </div>
-            
-            <!-- Buy Widget -->
-            <div class="max-w-md mx-auto animated-border-box">
-                <div class="p-8">
-                    <h3 class="text-2xl mb-8 text-frogYellow text-center">Buy $FROGGLE Tokens</h3>
-                    
-                    <!-- Wallet Status -->
-                    <div id="walletStatus" class="mb-8 p-6 bg-frogPurple bg-opacity-50 rounded-xl text-center border-2 border-white">
-                        <p class="text-white text-lg">Please connect your wallet to participate</p>
-                    </div>
-                    
-                    <!-- Amount Input -->
-                    <div class="mb-8">
-                        <label class="block text-frogYellow mb-2 text-xl">Amount (SOL)</label>
-                        <input type="number" id="solAmount" min="0.05" step="0.01" placeholder="Enter SOL amount" class="w-full bg-frogIndigo border-3 border-white text-white py-3 px-4 rounded-xl">
-                        <div class="flex justify-between mt-4">
-                            <button data-amount="0.1" class="amount-btn jelly-btn">0.1</button>
-                            <button data-amount="0.5" class="amount-btn jelly-btn">0.5</button>
-                            <button data-amount="1" class="amount-btn jelly-btn">1</button>
-                            <button data-amount="2" class="amount-btn jelly-btn">2</button>
-                            <button data-amount="5" class="amount-btn jelly-btn">5</button>
-                        </div>
-                    </div>
-                    
-                    <!-- Price Calculation -->
-                    <div class="mb-8 p-6 zigzag-box rounded-xl border-2 border-white">
-                        <div class="flex justify-between mb-3 text-lg">
-                            <span class="text-white">Price per FROGGLE:</span>
-                            <span class="text-frogYellow font-bold">0.001 SOL</span>
-                        </div>
-                        <div class="flex justify-between mb-3 text-lg">
-                            <span class="text-white">You will receive:</span>
-                            <span id="tokenAmount" class="text-frogYellow font-bold">0 FROGGLE</span>
-                        </div>
-                        <div class="flex justify-between mb-3 text-lg">
-                            <span class="text-white">Early Bird Bonus:</span>
-                            <span id="bonusAmount" class="text-frogYellow font-bold">0 FROGGLE</span>
-                        </div>
-                        <div class="border-t-2 border-white mt-4 pt-4">
-                            <div class="flex justify-between font-bold text-xl">
-                                <span class="text-white">Total:</span>
-                                <span id="totalAmount" class="text-frogYellow">0 FROGGLE</span>
+    <section id="presale" style="background-image: url('immagine 1.png'); background-size: cover; background-position: center; position: relative;">
+        <!-- Overlay scuro per migliorare la leggibilità del testo -->
+        <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background-color: rgba(75, 0, 118, 0.85); z-index: 1;"></div>
+        
+        <div class="container mx-auto relative z-10">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-8">
+                <!-- Box presale a sinistra, più piccolo -->
+                <div class="md:w-1/2 max-w-md">
+                    <div class="bg-white rounded-3xl p-6 shadow-lg border-4 border-frogLight">
+                        <h2 class="text-3xl text-center mb-6 text-frogBlack font-bold">Stage 1</h2>
+                        
+                        <!-- Progress Bar -->
+                        <div class="mb-6">
+                            <div class="h-6 bg-white rounded-full overflow-hidden border-2 border-frogLight">
+                                <div class="h-full bg-frogLight" style="width: 17%;">
+                                    <span class="float-right mr-2 text-frogDark font-bold leading-6">17%</span>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    
-                    <!-- Buy Button -->
-                    <button id="buyButton" class="w-full rainbow-btn" disabled>
-                        BUY $FROGGLE
-                    </button>
-                    
-                    <!-- Transaction Status -->
-                    <div id="txStatus" class="mt-6 text-center hidden">
-                        <p class="text-frogYellow text-lg">Processing transaction...</p>
-                        <div class="mt-4 text-md">
-                            <a id="txLink" href="#" target="_blank" class="text-frogPink underline">View on Solscan</a>
+                        
+                        <!-- Price Display -->
+                        <div class="flex justify-between mb-8">
+                            <div class="text-center">
+                                <p class="text-frogBlack mb-1 text-sm">Price now</p>
+                                <p class="text-xl font-black text-frogBlack">0.00098$</p>
+                            </div>
+                            <div class="text-center">
+                                <p class="text-frogBlack mb-1 text-sm">Listing price</p>
+                                <div class="flex items-center">
+                                    <p class="text-xl font-black text-frogBlack">0.00600$</p>
+                                    <span class="ml-2 text-xl font-bold text-frogMedium">X6</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Step 1 -->
+                        <div class="mb-4">
+                            <h3 class="text-base font-semibold text-frogBlack mb-2">Step 1: Choose currency</h3>
+                            <div class="flex gap-2">
+                                <div class="w-3/4 bg-white border-2 border-frogLight rounded-full p-2 flex items-center justify-center">
+                                    <span class="font-bold text-frogBlack">SOLANA</span>
+                                </div>
+                                <button class="w-1/4 bg-frogDark text-white font-bold rounded-full p-2 hover:bg-opacity-80 transition-all text-sm" disabled>
+                                    CHAIN
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <!-- Step 2 -->
+                        <div class="mb-4">
+                            <h3 class="text-base font-semibold text-frogBlack mb-2">Step 2: Put sum of tokens you want to invest</h3>
+                            <div class="flex items-center gap-2 mb-2">
+                                <div class="flex-1">
+                                    <input type="number" id="solAmount" placeholder="1.0000" class="w-full bg-white border-2 border-frogLight rounded-full p-2 text-lg text-frogBlack font-bold">
+                                </div>
+                                <div>
+                                    <span class="text-lg font-bold text-frogBlack">SOL</span>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <div class="flex-1">
+                                    <input type="text" id="tokenAmount" readonly placeholder="0" class="w-full bg-white border-2 border-frogLight rounded-full p-2 text-lg text-frogBlack font-bold">
+                                </div>
+                                <div class="flex items-center">
+                                    <img src="sfondo1.png" alt="FROGGLE" class="w-6 h-6 rounded-full mr-1">
+                                    <span class="text-lg font-bold text-frogBlack">FROGGLE</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Buy Button -->
+                        <button id="buyButton" class="w-full bg-frogLight hover:bg-opacity-90 text-frogDark text-xl font-black py-2 px-6 rounded-full shadow-lg transition-all mb-4">
+                            BUY $FROGGLE
+                        </button>
+                        
+                        <!-- Wallet Info -->
+                        <div class="text-center text-frogBlack mb-3 text-sm">
+                            <p>Wallet: <span id="walletAddress">...</span></p>
+                            <p class="text-xs text-frogBlack mt-1">
+                                If you use Trust Wallet it only works correctly with native SOL tokens
+                            </p>
+                        </div>
+                        
+                        <!-- Connect/Manage Buttons -->
+                        <div class="flex gap-2">
+                            <button id="manageWalletBtn" class="w-1/2 bg-frogDark text-white font-bold py-2 px-4 rounded-full hover:bg-opacity-80 transition-all text-sm">
+                                MANAGE
+                            </button>
+                            <button id="connectWalletBtn" class="w-1/2 bg-frogLight text-frogDark font-bold py-2 px-4 rounded-full hover:bg-opacity-80 transition-all text-sm">
+                                CONNECT WALLET
+                            </button>
                         </div>
                     </div>
+                </div>
+                
+                <!-- Immagine a destra -->
+                <div class="md:w-1/2 flex justify-center">
+                    <img src="immagine2.png" alt="FROGGLE Mascot" class="max-w-full rounded-xl shadow-xl" style="max-height: 600px;">
                 </div>
             </div>
         </div>
     </section>
+    
+    <!-- Add JavaScript for calculating token amount -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const solInput = document.getElementById('solAmount');
+            const tokenOutput = document.getElementById('tokenAmount');
+            const currentPrice = 0.00098; // $ per token
+            
+            solInput.addEventListener('input', function() {
+                const solAmount = parseFloat(solInput.value) || 0;
+                // Convert SOL to USD (using a placeholder exchange rate of $100 per SOL)
+                const usdValue = solAmount * 100;
+                // Calculate token amount based on current price
+                const tokenAmount = usdValue / currentPrice;
+                
+                // Format with commas for thousands
+                tokenOutput.value = Math.floor(tokenAmount).toLocaleString();
+            });
+        });
+    </script>
 
     <!-- Aggiungiamo una sezione per spiegare dove vanno i fondi -->
-    <div class="container mx-auto max-w-3xl mb-12">
-        <div class="speech-bubble bg-frogPurple p-6">
+    <div class="container mx-auto max-w-3xl mb-12 px-4">
+        <div class="speech-bubble bg-frogPurple">
             <h3 class="text-frogYellow text-xl mb-4 text-center">WHERE YOUR FUNDS GO</h3>
             <p class="text-white mb-4">Transparency is important to us. Here's how the presale funds are managed:</p>
             
@@ -976,427 +1039,127 @@
         </div>
     </div>
 
-    <!-- Mini-Game Section -->
-    <section id="minigame">
-        <div class="container mx-auto px-4">
-            <h2 class="text-4xl text-center mb-8 text-frogYellow pixel-font">FROGGLE GAMES</h2>
-            <p class="text-center text-xl mb-6">Play games, earn bonuses, have fun!</p>
-            
-            <!-- Game Selector Tabs -->
-            <div class="flex justify-center mb-8">
-                <div class="bg-frogIndigo border-4 border-white rounded-full p-2 inline-flex flex-wrap justify-center">
-                    <button id="game1Tab" class="px-6 py-3 rounded-full bg-frogYellow text-frogIndigo font-bold mr-2 mb-2 md:mb-0 transition-all">Hop to the Moon</button>
-                    <button id="game2Tab" class="px-6 py-3 rounded-full text-white hover:bg-frogPurple mr-2 mb-2 md:mb-0 transition-all">Froggle Flipper</button>
-                    <button id="game3Tab" class="px-6 py-3 rounded-full text-white hover:bg-frogPurple transition-all">Token Catcher</button>
-                </div>
-            </div>
-            
-            <!-- Game 1: Hop to the Moon -->
-            <div id="game1Container" class="game-container">
-                <!-- Contenuto esistente del primo gioco -->
-                <div class="max-w-2xl mx-auto cartoon-card bg-frogIndigo p-6 mb-10">
-                    <div class="relative bg-gradient-to-b from-frogPurple to-frogIndigo rounded-xl border-4 border-white overflow-hidden" style="height: 480px;">
-                        <!-- Game Canvas -->
-                        <canvas id="gameCanvas" width="600" height="480" class="mx-auto block"></canvas>
-                        
-                        <!-- Game Overlay (Start) -->
-                        <div id="gameStart" class="absolute inset-0 flex flex-col items-center justify-center bg-frogIndigo bg-opacity-80">
-                            <img src="INSERISCI-URL-LOGO.png" alt="Froggle" class="w-32 h-32 mb-6 jump-animation">
-                            <h3 class="text-frogYellow text-2xl mb-6 pixel-font">HOP TO THE MOON!</h3>
-                            <p class="text-white text-center mb-6 max-w-xs">Help Froggle jump from platform to platform and collect tokens on the way to the moon!</p>
-                            <button id="startGameBtn" class="bubble-btn">PLAY NOW!</button>
-                        </div>
-                        
-                        <!-- Game Overlay (End) -->
-                        <div id="gameOver" class="absolute inset-0 flex-col items-center justify-center bg-frogIndigo bg-opacity-80 hidden">
-                            <h3 class="text-frogYellow text-2xl mb-4 pixel-font">GAME OVER!</h3>
-                            <p class="text-white text-xl mb-2">Your Score: <span id="finalScore" class="text-frogYellow font-bold">0</span></p>
-                            <p class="text-white text-xl mb-6">Highest: <span id="highScore" class="text-frogYellow font-bold">0</span></p>
-                            <button id="restartGameBtn" class="jelly-btn mb-4">PLAY AGAIN</button>
-                            <div class="text-center mt-4">
-                                <p class="text-frogPink text-lg mb-2">Tip: For every 1000 points you earn:</p>
-                                <p class="text-white text-md">Get 5% bonus in the presale!</p>
-                            </div>
-                        </div>
-                        
-                        <!-- Game Controls Help -->
-                        <div class="absolute top-4 left-4 text-white text-sm bg-frogIndigo bg-opacity-70 p-2 rounded-lg">
-                            <p><span class="text-frogYellow">←/→</span>: Move</p>
-                            <p><span class="text-frogYellow">Space</span>: Jump</p>
-                        </div>
-                        
-                        <!-- Game Score -->
-                        <div class="absolute top-4 right-4 text-white text-xl bg-frogIndigo bg-opacity-70 p-2 rounded-lg">
-                            <p>Score: <span id="gameScore" class="text-frogYellow font-bold">0</span></p>
-                        </div>
-                    </div>
-                    
-                    <!-- Leaderboard -->
-                    <div class="mt-6">
-                        <h3 class="text-frogYellow text-xl mb-4 text-center">TOP HOPPERS</h3>
-                        <div class="zigzag-box rounded-xl border-2 border-white p-4">
-                            <div class="grid grid-cols-3 gap-2 mb-2 text-center">
-                                <div class="font-bold text-frogYellow">Rank</div>
-                                <div class="font-bold text-frogYellow">Player</div>
-                                <div class="font-bold text-frogYellow">Score</div>
-                            </div>
-                            <!-- Sample leaderboard entries -->
-                            <div class="grid grid-cols-3 gap-2 py-2 text-center border-b border-white border-opacity-30">
-                                <div class="text-frogYellow">1</div>
-                                <div class="text-white">Frog888</div>
-                                <div class="text-frogYellow">12500</div>
-                            </div>
-                            <div class="grid grid-cols-3 gap-2 py-2 text-center border-b border-white border-opacity-30">
-                                <div class="text-frogYellow">2</div>
-                                <div class="text-white">CryptoHopper</div>
-                                <div class="text-frogYellow">9750</div>
-                            </div>
-                            <div class="grid grid-cols-3 gap-2 py-2 text-center border-b border-white border-opacity-30">
-                                <div class="text-frogYellow">3</div>
-                                <div class="text-white">MoonJumper</div>
-                                <div class="text-frogYellow">8120</div>
-                            </div>
-                            <div class="grid grid-cols-3 gap-2 py-2 text-center border-b border-white border-opacity-30">
-                                <div class="text-frogYellow">4</div>
-                                <div class="text-white">RibbitKing</div>
-                                <div class="text-frogYellow">6430</div>
-                            </div>
-                            <div class="grid grid-cols-3 gap-2 py-2 text-center">
-                                <div class="text-frogYellow">5</div>
-                                <div class="text-white">TokenLeaper</div>
-                                <div class="text-frogYellow">5280</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Game Instructions -->
-                <div class="max-w-xl mx-auto mb-8">
-                    <div class="speech-bubble bg-frogPurple p-6">
-                        <h3 class="text-frogYellow text-xl mb-4 text-center">HOW TO PLAY</h3>
-                        <ul class="text-white space-y-3">
-                            <li>Use <span class="text-frogYellow font-bold">left/right arrows</span> to move horizontally</li>
-                            <li>Press <span class="text-frogYellow font-bold">spacebar</span> to jump higher</li>
-                            <li>Land on platforms to climb higher</li>
-                            <li>Collect <span class="text-frogYellow font-bold">$FROGGLE tokens</span> for extra points</li>
-                            <li>Reach as high as possible without falling!</li>
-                            <li>Earn a <span class="text-frogYellow font-bold">5% presale bonus</span> for every 1000 points!</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Game 2: Froggle Flipper -->
-            <div id="game2Container" class="game-container hidden">
-                <div class="max-w-2xl mx-auto cartoon-card bg-frogIndigo p-6 mb-10">
-                    <h3 class="text-frogYellow text-3xl mb-6 text-center pixel-font">FROGGLE FLIPPER</h3>
-                    <p class="text-white text-center mb-8">Flip the coin and test your luck! Win bonuses for the presale!</p>
-                    
-                    <!-- Coin Flip Game -->
-                    <div class="max-w-md mx-auto">
-                        <!-- Coin Container -->
-                        <div id="coinContainer" class="relative h-64 w-64 mx-auto mb-8">
-                            <!-- Frog Side -->
-                            <div id="coinFrogSide" class="absolute inset-0 bg-frogYellow rounded-full border-8 border-white flex items-center justify-center transform transition-all duration-1000">
-                                <div class="flex items-center justify-center w-full h-full">
-                                    <!-- Frog Face -->
-                                    <div class="relative w-40 h-40">
-                                        <!-- Eyes -->
-                                        <div class="absolute top-1/4 left-1/4 w-10 h-10 bg-white rounded-full"></div>
-                                        <div class="absolute top-1/4 right-1/4 w-10 h-10 bg-white rounded-full"></div>
-                                        
-                                        <!-- Pupils -->
-                                        <div class="absolute top-1/4 left-1/4 w-6 h-6 bg-frogIndigo rounded-full transform translate-x-1 translate-y-1"></div>
-                                        <div class="absolute top-1/4 right-1/4 w-6 h-6 bg-frogIndigo rounded-full transform translate-x-1 translate-y-1"></div>
-                                        
-                                        <!-- Mouth -->
-                                        <div class="absolute bottom-1/4 left-1/2 transform -translate-x-1/2 w-20 h-10 border-b-4 border-frogIndigo rounded-b-full"></div>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <!-- Token Side -->
-                            <div id="coinTokenSide" class="absolute inset-0 bg-frogPurple rounded-full border-8 border-white flex items-center justify-center transform transition-all duration-1000 rotateY-180">
-                                <div class="flex flex-col items-center justify-center w-full h-full">
-                                    <span class="text-frogYellow text-6xl font-bold">$</span>
-                                    <span class="text-white text-2xl font-bold mt-1">FROGGLE</span>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- Game Controls -->
-                        <div class="mb-8">
-                            <div class="flex justify-center mb-6">
-                                <div id="flipResult" class="text-2xl font-bold text-white">Choose your side!</div>
-                            </div>
-                            
-                            <div class="flex justify-center gap-4 mb-8">
-                                <button id="chooseFrog" class="px-8 py-4 bg-frogYellow text-frogIndigo rounded-cartoon font-bold text-xl btn">
-                                    <span class="flex items-center">
-                                        <span class="mr-2">🐸</span>
-                                        <span>FROG</span>
-                                    </span>
-                                </button>
-                                <button id="chooseToken" class="px-8 py-4 bg-frogPurple text-white rounded-cartoon font-bold text-xl btn">
-                                    <span class="flex items-center">
-                                        <span class="mr-2">💰</span>
-                                        <span>TOKEN</span>
-                                    </span>
-                                </button>
-                            </div>
-                            
-                            <button id="flipCoin" class="w-full py-4 bg-frogPink text-white rounded-cartoon font-bold text-xl btn" disabled>
-                                FLIP THE COIN
-                            </button>
-                        </div>
-                        
-                        <!-- Game Stats -->
-                        <div class="bg-frogPurple bg-opacity-50 rounded-xl border-2 border-white p-6">
-                            <div class="grid grid-cols-2 gap-4">
-                                <div class="text-center">
-                                    <p class="text-white mb-2">Your Picks</p>
-                                    <div class="flex justify-center gap-2">
-                                        <div>
-                                            <div class="text-frogYellow text-xl font-bold mb-1" id="frogWins">0</div>
-                                            <div class="text-sm">🐸</div>
-                                        </div>
-                                        <div>
-                                            <div class="text-frogYellow text-xl font-bold mb-1" id="tokenWins">0</div>
-                                            <div class="text-sm">💰</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="text-center">
-                                    <p class="text-white mb-2">Win Streak</p>
-                                    <div class="text-frogYellow text-2xl font-bold" id="winStreak">0</div>
-                                </div>
-                            </div>
-                            
-                            <div class="mt-4 pt-4 border-t border-white border-opacity-30">
-                                <p class="text-white text-center">Your Bonus: <span id="flipperBonus" class="text-frogYellow font-bold">0%</span></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Game Instructions -->
-                <div class="max-w-xl mx-auto mb-8">
-                    <div class="speech-bubble bg-frogPurple p-6">
-                        <h3 class="text-frogYellow text-xl mb-4 text-center">HOW TO PLAY</h3>
-                        <ul class="text-white space-y-3">
-                            <li>Choose your side: <span class="text-frogYellow font-bold">Frog</span> or <span class="text-frogYellow font-bold">Token</span></li>
-                            <li>Click the <span class="text-frogYellow font-bold">Flip the Coin</span> button</li>
-                            <li>If your prediction is correct, you win!</li>
-                            <li>Each correct guess increases your win streak</li>
-                            <li>Get a <span class="text-frogYellow font-bold">2% presale bonus</span> for each point in your streak!</li>
-                            <li>Maximum bonus: <span class="text-frogYellow font-bold">10%</span></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Game 3: Token Catcher -->
-            <div id="game3Container" class="game-container hidden">
-                <div class="max-w-2xl mx-auto cartoon-card bg-frogIndigo p-6 mb-10">
-                    <h3 class="text-frogYellow text-3xl mb-6 text-center pixel-font">TOKEN CATCHER</h3>
-                    <p class="text-white text-center mb-8">Catch falling tokens with your frog's tongue! Avoid the bugs!</p>
-                    
-                    <!-- Game Canvas Container -->
-                    <div class="relative bg-gradient-to-b from-frogPurple to-frogIndigo rounded-xl border-4 border-white overflow-hidden" style="height: 480px;">
-                        <!-- Game Canvas -->
-                        <canvas id="catcherCanvas" width="600" height="480" class="mx-auto block"></canvas>
-                        
-                        <!-- Game Overlay (Start) -->
-                        <div id="catcherStart" class="absolute inset-0 flex flex-col items-center justify-center bg-frogIndigo bg-opacity-80">
-                            <img src="INSERISCI-URL-LOGO.png" alt="Froggle" class="w-32 h-32 mb-6 jump-animation">
-                            <h3 class="text-frogYellow text-2xl mb-6 pixel-font">TOKEN CATCHER</h3>
-                            <p class="text-white text-center mb-6 max-w-xs">Move your frog to catch falling tokens with your tongue. Avoid the bugs!</p>
-                            <button id="startCatcherBtn" class="bg-frogYellow text-frogIndigo px-8 py-3 rounded-cartoon font-bold text-xl btn">PLAY NOW!</button>
-                        </div>
-                        
-                        <!-- Game Overlay (End) -->
-                        <div id="catcherOver" class="absolute inset-0 flex-col items-center justify-center bg-frogIndigo bg-opacity-80 hidden">
-                            <h3 class="text-frogYellow text-2xl mb-4 pixel-font">GAME OVER!</h3>
-                            <p class="text-white text-xl mb-2">Your Score: <span id="catcherFinalScore" class="text-frogYellow font-bold">0</span></p>
-                            <p class="text-white text-xl mb-6">Highest: <span id="catcherHighScore" class="text-frogYellow font-bold">0</span></p>
-                            <button id="restartCatcherBtn" class="bg-frogYellow text-frogIndigo px-6 py-2 rounded-cartoon font-bold text-lg btn mb-4">PLAY AGAIN</button>
-                            <div class="text-center mt-4">
-                                <p class="text-frogPink text-lg mb-2">Tip: For every 500 points you earn:</p>
-                                <p class="text-white text-md">Get 3% bonus in the presale!</p>
-                            </div>
-                        </div>
-                        
-                        <!-- Game Controls Help -->
-                        <div class="absolute top-4 left-4 text-white text-sm bg-frogIndigo bg-opacity-70 p-2 rounded-lg">
-                            <p><span class="text-frogYellow">←/→</span>: Move</p>
-                            <p><span class="text-frogYellow">Space</span>: Extend Tongue</p>
-                        </div>
-                        
-                        <!-- Game Score and Lives -->
-                        <div class="absolute top-4 right-4 text-white text-xl bg-frogIndigo bg-opacity-70 p-2 rounded-lg">
-                            <p>Score: <span id="catcherScore" class="text-frogYellow font-bold">0</span></p>
-                            <p>Lives: <span id="catcherLives" class="text-frogYellow font-bold">3</span></p>
-                        </div>
-                    </div>
-                    
-                    <!-- High Scores -->
-                    <div class="mt-6">
-                        <h3 class="text-frogYellow text-xl mb-4 text-center">TOP CATCHERS</h3>
-                        <div class="bg-frogPurple bg-opacity-50 rounded-xl border-2 border-white p-4">
-                            <div class="grid grid-cols-3 gap-2 mb-2 text-center">
-                                <div class="font-bold text-frogYellow">Rank</div>
-                                <div class="font-bold text-frogYellow">Player</div>
-                                <div class="font-bold text-frogYellow">Score</div>
-                            </div>
-                            <!-- Sample leaderboard entries -->
-                            <div class="grid grid-cols-3 gap-2 py-2 text-center border-b border-white border-opacity-30">
-                                <div class="text-frogYellow">1</div>
-                                <div class="text-white">TongueMaster</div>
-                                <div class="text-frogYellow">8200</div>
-                            </div>
-                            <div class="grid grid-cols-3 gap-2 py-2 text-center border-b border-white border-opacity-30">
-                                <div class="text-frogYellow">2</div>
-                                <div class="text-white">TokenFrog</div>
-                                <div class="text-frogYellow">7150</div>
-                            </div>
-                            <div class="grid grid-cols-3 gap-2 py-2 text-center border-b border-white border-opacity-30">
-                                <div class="text-frogYellow">3</div>
-                                <div class="text-white">LickyLicky</div>
-                                <div class="text-frogYellow">5980</div>
-                            </div>
-                            <div class="grid grid-cols-3 gap-2 py-2 text-center border-b border-white border-opacity-30">
-                                <div class="text-frogYellow">4</div>
-                                <div class="text-white">FlyHunter</div>
-                                <div class="text-frogYellow">4320</div>
-                            </div>
-                            <div class="grid grid-cols-3 gap-2 py-2 text-center">
-                                <div class="text-frogYellow">5</div>
-                                <div class="text-white">RibbitRich</div>
-                                <div class="text-frogYellow">3640</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Game Instructions -->
-                <div class="max-w-xl mx-auto mb-8">
-                    <div class="speech-bubble bg-frogPurple p-6">
-                        <h3 class="text-frogYellow text-xl mb-4 text-center">HOW TO PLAY</h3>
-                        <ul class="text-white space-y-3">
-                            <li>Use <span class="text-frogYellow font-bold">left/right arrows</span> to move your frog</li>
-                            <li>Press <span class="text-frogYellow font-bold">spacebar</span> to extend your tongue</li>
-                            <li>Catch <span class="text-frogYellow font-bold">$FROGGLE tokens</span> with your tongue</li>
-                            <li>Avoid <span class="text-frogYellow font-bold">bugs</span> or you'll lose a life</li>
-                            <li>You have <span class="text-frogYellow font-bold">3 lives</span> - use them wisely!</li>
-                            <li>Earn a <span class="text-frogYellow font-bold">3% presale bonus</span> for every 500 points!</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- Tokenomics Section -->
-    <section id="tokenomics" class="bg-gradient-to-b from-frogNight to-green-900">
-        <div class="container mx-auto">
-            <h2 class="text-3xl text-center mb-12 text-frogGreen pixel-font">TOKENOMICS</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-                <div>
-                    <ul class="space-y-4 text-lg">
-                        <li><span class="text-frogLime">Token Name:</span> FROGGLE</li>
-                        <li><span class="text-frogLime">Symbol:</span> $FROGGLE</li>
-                        <li><span class="text-frogLime">Total Supply:</span> 1,000,000,000 $FROGGLE</li>
-                        <li><span class="text-frogLime">Blockchain:</span> Solana</li>
-                        <li><span class="text-frogLime">Presale Allocation:</span> 400,000,000 $FROGGLE (40%)</li>
-                        <li><span class="text-frogLime">Decimals:</span> 9</li>
-                        <li><span class="text-frogLime">Token Address:</span> 
-                            <div class="tooltip inline-block">
-                                <button id="copyTokenAddress" class="bg-transparent border border-frogGreen text-frogGreen px-2 py-1 rounded text-sm">
-                                    5Y3FEjkBzDLyrTq4y895B7DhFVVek9tc2EWjD2HLBrTv
-                                </button>
-                                <span class="tooltiptext" id="tokenTooltip">Copy Token Address</span>
-                            </div>
-                        </li>
-                        <li><span class="text-frogLime">Escrow Account:</span> 
-                            <div class="tooltip inline-block">
-                                <button id="copyEscrowAddress" class="bg-transparent border border-frogGreen text-frogGreen px-2 py-1 rounded text-sm">
-                                    9YxvANCGh8kpnD5RL48CpzA5QAzVPuYeaLbYqdEmaJc3
-                                </button>
-                                <span class="tooltiptext" id="escrowTooltip">Copy Escrow Address</span>
-                            </div>
-                        </li>
+    <section id="tokenomics" style="background-image: url('immagine 1.png'); background-size: cover; background-position: center; position: relative;">
+        <!-- Overlay scuro per migliorare la leggibilità del testo -->
+        <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background-color: rgba(75, 0, 118, 0.85); z-index: 1;"></div>
+        
+        <div class="container mx-auto relative z-10">
+            <h2 class="text-4xl text-center mb-12 text-white pixel-font">TOKENOMICS</h2>
+            
+            <!-- Tokenomics content -->
+            <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Token Supply -->
+                <div class="fancy-box p-6 bg-frogDeep bg-opacity-60">
+                    <h3 class="text-2xl mb-6 text-white text-center">Token Supply</h3>
+                    <ul class="space-y-4">
+                        <li class="text-white">Total Supply: <span class="font-bold">1 Billion FROGGLE</span></li>
+                        <li class="text-white">Presale Allocation: <span class="font-bold">40% (400M FROGGLE)</span></li>
+                        <li class="text-white">Liquidity Pool: <span class="font-bold">30% (300M FROGGLE)</span></li>
+                        <li class="text-white">Community Rewards: <span class="font-bold">20% (200M FROGGLE)</span></li>
+                        <li class="text-white">Team & Development: <span class="font-bold">10% (100M FROGGLE)</span></li>
                     </ul>
-                    <div class="mt-8">
-                        <a href="https://solscan.io/token/5Y3FEjkBzDLyrTq4y895B7DhFVVek9tc2EWjD2HLBrTv" target="_blank" class="inline-block bg-frogGreen text-frogNight px-4 py-2 rounded-lg font-bold btn">View on Solscan</a>
-                    </div>
                 </div>
-                <div class="flex justify-center items-center">
+                
+                <!-- Pie Chart for Token Distribution -->
+                <div class="flex flex-col justify-center items-center p-6 bg-frogDeep bg-opacity-60 rounded-xl border-2 border-white">
                     <!-- SVG pie chart for token distribution -->
-                    <svg width="300" height="300" viewBox="0 0 100 100">
-                        <!-- Presale - 40% (144 degrees) -->
-                        <path d="M50 50 L50 0 A50 50 0 0 1 85.36 14.64 Z" fill="#6EE7B7" />
-                        <!-- Team & Development - 20% (72 degrees) -->
-                        <path d="M50 50 L85.36 14.64 A50 50 0 0 1 100 50 Z" fill="#A3E635" />
-                        <!-- Marketing - 10% (36 degrees) -->
-                        <path d="M50 50 L100 50 A50 50 0 0 1 85.36 85.36 Z" fill="#84CC16" />
-                        <!-- Community Rewards - 15% (54 degrees) -->
-                        <path d="M50 50 L85.36 85.36 A50 50 0 0 1 50 100 Z" fill="#4ADE80" />
-                        <!-- Liquidity - 10% (36 degrees) -->
-                        <path d="M50 50 L50 100 A50 50 0 0 1 14.64 85.36 Z" fill="#34D399" />
-                        <!-- Reserves - 5% (18 degrees) -->
-                        <path d="M50 50 L14.64 85.36 A50 50 0 0 1 0 50 Z" fill="#2DD4BF" />
-                        <!-- Center circle -->
-                        <circle cx="50" cy="50" r="25" fill="#052E16" />
-                        <!-- Center text -->
-                        <text x="50" y="50" font-size="3" fill="white" text-anchor="middle" dominant-baseline="middle">$FROGGLE</text>
-                    </svg>
+                    <div class="relative">
+                        <svg width="280" height="280" viewBox="0 0 100 100">
+                            <!-- Presale - 40% (144 degrees) -->
+                            <path d="M50 50 L50 0 A50 50 0 0 1 95.1 69.1 Z" fill="#C8A2C8">
+                                <animate attributeName="opacity" values="0.8;1;0.8" dur="3s" repeatCount="indefinite" />
+                            </path>
+                            <!-- Liquidity - 30% (108 degrees) -->
+                            <path d="M50 50 L95.1 69.1 A50 50 0 0 1 0 50 Z" fill="#AA8DAA">
+                                <animate attributeName="opacity" values="0.8;1;0.8" dur="3s" repeatCount="indefinite" begin="0.6s" />
+                            </path>
+                            <!-- Community - 20% (72 degrees) -->
+                            <path d="M50 50 L0 50 A50 50 0 0 1 50 0 Z" fill="#6A0DAD">
+                                <animate attributeName="opacity" values="0.8;1;0.8" dur="3s" repeatCount="indefinite" begin="1.2s" />
+                            </path>
+                            <!-- Team - 10% (36 degrees) - completing the circle -->
+                            <path d="M50 50 L50 100 A50 50 0 0 1 0 50 Z" fill="#4B0076">
+                                <animate attributeName="opacity" values="0.8;1;0.8" dur="3s" repeatCount="indefinite" begin="1.8s" />
+                            </path>
+                            <!-- Center circle -->
+                            <circle cx="50" cy="50" r="20" fill="#FFFFFF" stroke="#FFFFFF" stroke-width="1" />
+                            <!-- Center text -->
+                            <text x="50" y="50" font-size="6" fill="#4B0076" text-anchor="middle" dominant-baseline="middle" font-weight="bold">FROGGLE</text>
+                        </svg>
+                    </div>
+                    
+                    <!-- Token Distribution Key -->
+                    <div class="grid grid-cols-2 gap-4 mt-6">
+                        <div class="flex items-center">
+                            <div class="w-4 h-4 bg-[#C8A2C8] mr-2 rounded-full"></div>
+                            <span class="text-white">Presale: 40%</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-4 h-4 bg-[#AA8DAA] mr-2 rounded-full"></div>
+                            <span class="text-white">Liquidity: 30%</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-4 h-4 bg-[#6A0DAD] mr-2 rounded-full"></div>
+                            <span class="text-white">Community: 20%</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-4 h-4 bg-[#4B0076] mr-2 rounded-full"></div>
+                            <span class="text-white">Team & Dev: 10%</span>
+                        </div>
+                    </div>
                 </div>
             </div>
             
-            <!-- Token Distribution Key -->
-            <div class="max-w-3xl mx-auto mt-12 grid grid-cols-2 md:grid-cols-3 gap-4">
-                <div class="flex items-center">
-                    <div class="w-4 h-4 bg-frogGreen mr-2"></div>
-                    <span>Presale: 40%</span>
+            <!-- Vesting Schedule -->
+            <div class="max-w-5xl mx-auto mt-8">
+                <div class="fancy-box p-6 bg-frogDeep bg-opacity-60 mt-8">
+                    <h3 class="text-2xl mb-6 text-white text-center">Vesting Schedule</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div class="p-4 bg-frogPurple bg-opacity-40 rounded-xl border border-white">
+                            <h4 class="text-xl text-white text-center mb-3">Presale Tokens</h4>
+                            <p class="text-white text-center">50% at launch,<br>50% over 3 months</p>
+                        </div>
+                        <div class="p-4 bg-frogPurple bg-opacity-40 rounded-xl border border-white">
+                            <h4 class="text-xl text-white text-center mb-3">Team Tokens</h4>
+                            <p class="text-white text-center">Locked for 6 months,<br>then vested over 1 year</p>
+                        </div>
+                        <div class="p-4 bg-frogPurple bg-opacity-40 rounded-xl border border-white">
+                            <h4 class="text-xl text-white text-center mb-3">Community Rewards</h4>
+                            <p class="text-white text-center">Released gradually<br>over 2 years</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="flex items-center">
-                    <div class="w-4 h-4 bg-[#A3E635] mr-2"></div>
-                    <span>Team & Development: 20%</span>
-                </div>
-                <div class="flex items-center">
-                    <div class="w-4 h-4 bg-[#84CC16] mr-2"></div>
-                    <span>Marketing: 10%</span>
-                </div>
-                <div class="flex items-center">
-                    <div class="w-4 h-4 bg-[#4ADE80] mr-2"></div>
-                    <span>Community Rewards: 15%</span>
-                </div>
-                <div class="flex items-center">
-                    <div class="w-4 h-4 bg-[#34D399] mr-2"></div>
-                    <span>Liquidity: 10%</span>
-                </div>
-                <div class="flex items-center">
-                    <div class="w-4 h-4 bg-[#2DD4BF] mr-2"></div>
-                    <span>Reserves: 5%</span>
-                </div>
+            </div>
+            
+            <!-- Token utility -->
+            <div class="max-w-4xl mx-auto mt-12 fancy-box p-6 bg-frogDeep bg-opacity-60">
+                <h3 class="text-2xl mb-6 text-white text-center">Token Utility</h3>
+                <p class="text-white mb-4">$FROGGLE is a community-driven token with the following utilities:</p>
+                <ul class="space-y-3">
+                    <li class="text-white">Access to exclusive community events and giveaways</li>
+                    <li class="text-white">Voting rights on community proposals</li>
+                    <li class="text-white">Trading and liquidity providing on Solana DEXes</li>
+                    <li class="text-white">Future staking rewards and yield farming opportunities</li>
+                </ul>
             </div>
         </div>
     </section>
 
     <!-- How to Claim Section -->
-    <section id="howtoclaim" class="bg-gradient-to-b from-green-900 to-frogNight">
+    <section id="howtoclaim" class="bg-gradient-to-b from-frogDeep to-frogIndigo">
         <div class="container mx-auto">
-            <h2 class="text-3xl text-center mb-12 text-frogGreen pixel-font">HOW TO CLAIM</h2>
+            <h2 class="text-4xl text-center mb-8 text-white">HOW TO CLAIM</h2>
             
             <div class="max-w-3xl mx-auto">
-                <div class="bg-frogNight border-2 border-frogGreen rounded-lg p-8 mb-8">
-                    <h3 class="text-xl mb-6 text-frogLime">Token Release Schedule</h3>
+                <div class="bg-frogPurple border-2 border-frogGold rounded-lg p-8 mb-8">
+                    <h3 class="text-xl mb-6 text-frogGold">Token Release Schedule</h3>
                     <p class="mb-4">After the presale ends on June 1, 2025, your $FROGGLE tokens will be released according to this schedule:</p>
                     
                     <div class="mb-6">
                         <div class="flex justify-between mb-2">
                             <span class="text-white">Initial Release:</span>
-                            <span class="text-frogGreen">50% of your tokens</span>
+                            <span class="text-frogGold">50% of your tokens</span>
                         </div>
                         <div class="progress-container h-6">
                             <div class="progress-bar" style="width: 50%;">50%</div>
@@ -1407,18 +1170,18 @@
                         <p class="font-bold text-white">Monthly Releases:</p>
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <div>
-                                <p class="text-frogLime">Month 1: +5%</p>
-                                <p class="text-frogLime">Month 2: +5%</p>
-                                <p class="text-frogLime">Month 3: +5%</p>
-                                <p class="text-frogLime">Month 4: +5%</p>
-                                <p class="text-frogLime">Month 5: +5%</p>
+                                <p class="text-frogGold">Month 1: +5%</p>
+                                <p class="text-frogGold">Month 2: +5%</p>
+                                <p class="text-frogGold">Month 3: +5%</p>
+                                <p class="text-frogGold">Month 4: +5%</p>
+                                <p class="text-frogGold">Month 5: +5%</p>
                             </div>
                             <div>
-                                <p class="text-frogLime">Month 6: +5%</p>
-                                <p class="text-frogLime">Month 7: +5%</p>
-                                <p class="text-frogLime">Month 8: +5%</p>
-                                <p class="text-frogLime">Month 9: +5%</p>
-                                <p class="text-frogLime">Month 10: +5%</p>
+                                <p class="text-frogGold">Month 6: +5%</p>
+                                <p class="text-frogGold">Month 7: +5%</p>
+                                <p class="text-frogGold">Month 8: +5%</p>
+                                <p class="text-frogGold">Month 9: +5%</p>
+                                <p class="text-frogGold">Month 10: +5%</p>
                             </div>
                         </div>
                     </div>
@@ -1427,30 +1190,30 @@
                 </div>
                 
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <div class="bg-frogNight p-6 rounded-lg border border-frogGreen text-center">
+                    <div class="bg-frogPurple p-6 rounded-lg border border-frogGold text-center">
                         <div class="text-4xl mb-4">1</div>
-                        <h3 class="text-xl mb-4 text-frogLime">Connect Wallet</h3>
+                        <h3 class="text-xl mb-4 text-frogGold">Connect Wallet</h3>
                         <p class="mb-4">Use the same wallet you used for the presale purchase</p>
                     </div>
-                    <div class="bg-frogNight p-6 rounded-lg border border-frogGreen text-center">
+                    <div class="bg-frogPurple p-6 rounded-lg border border-frogGold text-center">
                         <div class="text-4xl mb-4">2</div>
-                        <h3 class="text-xl mb-4 text-frogLime">Check Eligibility</h3>
+                        <h3 class="text-xl mb-4 text-frogGold">Check Eligibility</h3>
                         <p class="mb-4">Verify your available tokens to claim based on the schedule</p>
                     </div>
-                    <div class="bg-frogNight p-6 rounded-lg border border-frogGreen text-center">
+                    <div class="bg-frogPurple p-6 rounded-lg border border-frogGold text-center">
                         <div class="text-4xl mb-4">3</div>
-                        <h3 class="text-xl mb-4 text-frogLime">Claim Tokens</h3>
+                        <h3 class="text-xl mb-4 text-frogGold">Claim Tokens</h3>
                         <p class="mb-4">Use the claim function to receive your tokens directly to your wallet</p>
                     </div>
                 </div>
                 
                 <!-- Claim Widget (For after presale) -->
-                <div class="max-w-md mx-auto mt-12 bg-frogNight border-2 border-frogGreen rounded-lg overflow-hidden">
+                <div class="max-w-md mx-auto mt-12 bg-frogPurple border-2 border-frogGold rounded-lg overflow-hidden">
                     <div class="p-6">
-                        <h3 class="text-xl mb-6 text-frogLime text-center">Claim Your $FROGGLE</h3>
+                        <h3 class="text-xl mb-6 text-frogGold text-center">Claim Your $FROGGLE</h3>
                         
                         <!-- Claim Status -->
-                        <div id="claimWalletStatus" class="mb-6 p-4 bg-green-900 bg-opacity-30 rounded-lg text-center">
+                        <div id="claimWalletStatus" class="mb-6 p-4 bg-frogIndigo bg-opacity-70 rounded-lg text-center">
                             <p class="text-white">Please connect your wallet to check claim status</p>
                         </div>
                         
@@ -1466,28 +1229,71 @@
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="bg-frogNight text-white py-6 border-t border-frogGreen">
-        <div class="container mx-auto px-4 text-center">
-            <div class="flex justify-center space-x-8 mb-6">
-                <a href="https://twitter.com/" target="_blank" class="text-white hover:text-frogGreen transition-colors">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-                    </svg>
-                </a>
-                <a href="https://t.me/" target="_blank" class="text-white hover:text-frogGreen transition-colors">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
-                    </svg>
-                </a>
-                <a href="https://discord.com/" target="_blank" class="text-white hover:text-frogGreen transition-colors">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/>
-                    </svg>
-                </a>
+    <!-- FAQ Section -->
+    <section id="faq" class="bg-gradient-to-b from-frogIndigo to-frogDeep py-16">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl text-center mb-8 text-white">FAQ</h2>
+            
+            <div class="max-w-3xl mx-auto">
+                <div class="bg-frogPurple border-2 border-frogGold rounded-lg p-8 mb-8">
+                    <h3 class="text-xl mb-6 text-frogGold">Frequently Asked Questions</h3>
+                    <p class="mb-4">Here are some common questions about our presale and tokenomics:</p>
+                    
+                    <div class="mb-6">
+                        <h4 class="text-white mb-2">What is the presale all about?</h4>
+                        <p class="text-white">The presale is our way of raising funds to support the development and marketing of our meme coin. We're excited to share our vision with you!</p>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="text-white mb-2">How much can I buy during the presale?</h4>
+                        <p class="text-white">You can buy up to 5 SOL worth of FROGGLE tokens during the presale. The more you buy, the more tokens you'll receive!</p>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="text-white mb-2">What's the difference between early bird and regular presale?</h4>
+                        <p class="text-white">Early bird buyers get a 15% bonus on their first 50M tokens purchased. This is a limited-time offer!</p>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="text-white mb-2">How long is the presale?</h4>
+                        <p class="text-white">The presale runs from May 1, 2025, to June 1, 2025. Don't miss out!</p>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="text-white mb-2">How can I claim my tokens after the presale ends?</h4>
+                        <p class="text-white">You'll be able to claim your tokens after the presale ends. We'll send you an email with instructions on how to do this.</p>
+                    </div>
+                </div>
             </div>
-            <p class="mb-2">© 2025 $FROGGLE - All Rights Reserved</p>
-            <p class="text-sm text-gray-400">Not financial advice. DYOR. $FROGGLE is a meme coin with no intrinsic value.</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-frogDeep text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="max-w-5xl mx-auto">
+                <div class="text-center mb-8">
+                    <h3 class="text-2xl mb-4 text-white">JOIN THE COMMUNITY</h3>
+                    <p class="text-lg mb-6 text-white">Hop into our community and be part of the FROGGLE revolution!</p>
+                    <div class="flex justify-center space-x-6">
+                        <a href="#" class="bg-frogFuchsia text-white p-3 rounded-full hover:bg-opacity-80 transition-all">
+                            Twitter
+                        </a>
+                        <a href="#" class="bg-frogFuchsia text-white p-3 rounded-full hover:bg-opacity-80 transition-all">
+                            Telegram
+                        </a>
+                        <a href="#" class="bg-frogFuchsia text-white p-3 rounded-full hover:bg-opacity-80 transition-all">
+                            Discord
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="text-center text-sm opacity-70">
+                    <p class="text-white mb-2">$FROGGLE is a meme coin with no intrinsic value or financial expectation.</p>
+                    <p class="text-white mb-4">This is NOT financial advice. Please DYOR before participating.</p>
+                    <p class="text-white">&copy; 2025 FROGGLE. All rights reserved.</p>
+                </div>
+            </div>
         </div>
     </footer>
 
@@ -1837,1349 +1643,6 @@
         function shortenAddress(address) {
             return address.slice(0, 4) + '...' + address.slice(-4);
         }
-    </script>
-
-    <!-- Mini-Game: Hop to the Moon -->
-    <script>
-    // Mini-Game: Hop to the Moon
-    document.addEventListener('DOMContentLoaded', function() {
-        // Game elements
-        const gameCanvas = document.getElementById('gameCanvas');
-        const ctx = gameCanvas.getContext('2d');
-        const gameStart = document.getElementById('gameStart');
-        const gameOver = document.getElementById('gameOver');
-        const startGameBtn = document.getElementById('startGameBtn');
-        const restartGameBtn = document.getElementById('restartGameBtn');
-        const gameScoreElement = document.getElementById('gameScore');
-        const finalScoreElement = document.getElementById('finalScore');
-        const highScoreElement = document.getElementById('highScore');
-        
-        // Game variables
-        let gameActive = false;
-        let score = 0;
-        let highScore = localStorage.getItem('froggleHighScore') || 0;
-        highScoreElement.textContent = highScore;
-        
-        // Game objects
-        const frog = {
-            x: 300,
-            y: 400,
-            width: 40,
-            height: 40,
-            speed: 5,
-            jumpForce: 15,
-            velocity: 0,
-            gravity: 0.5,
-            jumping: false,
-            color: '#6EE7B7'
-        };
-        
-        let platforms = [];
-        let tokens = [];
-        let camera = 0;
-        
-        // Key controls
-        const keys = {
-            left: false,
-            right: false,
-            jump: false
-        };
-        
-        // Game initialization
-        function initGame() {
-            // Reset variables
-            gameActive = true;
-            score = 0;
-            frog.x = 300;
-            frog.y = 400;
-            frog.velocity = 0;
-            camera = 0;
-            gameScoreElement.textContent = score;
-            
-            // Generate initial platforms
-            platforms = [];
-            // Ground platform
-            platforms.push({
-                x: 150,
-                y: 440,
-                width: 300,
-                height: 20,
-                color: '#C084FC'
-            });
-            
-            // Generate some starting platforms
-            for (let i = 0; i < 10; i++) {
-                generatePlatform(i * 80);
-            }
-            
-            // Generate tokens
-            tokens = [];
-            for (let i = 0; i < 10; i++) {
-                generateToken();
-            }
-            
-            // Hide start screen, show game
-            gameStart.style.display = 'none';
-            gameOver.style.display = 'none';
-            
-            // Start game loop
-            window.requestAnimationFrame(gameLoop);
-        }
-        
-        // Platform generation
-        function generatePlatform(yOffset = 0) {
-            const width = Math.random() * 100 + 50;
-            const x = Math.random() * (600 - width);
-            const y = platforms.length ? 
-                      Math.min(platforms[platforms.length - 1].y - 80 - Math.random() * 60, 440 - yOffset) : 
-                      440 - yOffset;
-            
-            platforms.push({
-                x,
-                y,
-                width,
-                height: 15,
-                color: '#9333EA'
-            });
-        }
-        
-        // Token generation
-        function generateToken() {
-            // Find a platform to place the token above
-            if (platforms.length < 2) return;
-            
-            const platform = platforms[Math.floor(Math.random() * (platforms.length - 1)) + 1];
-            
-            tokens.push({
-                x: platform.x + platform.width / 2 - 10,
-                y: platform.y - 30,
-                width: 20,
-                height: 20,
-                color: '#FBBF24',
-                collected: false
-            });
-        }
-        
-        // Game loop
-        function gameLoop() {
-            if (!gameActive) return;
-            
-            // Clear canvas
-            ctx.clearRect(0, 0, gameCanvas.width, gameCanvas.height);
-            
-            // Draw galactic background with parallax effect
-            createGalacticBackground();
-            
-            // Update camera if frog moves high enough
-            if (frog.y < 200) {
-                const diff = 200 - frog.y;
-                camera += diff;
-                frog.y = 200;
-                
-                // Move platforms and tokens down
-                platforms.forEach(platform => platform.y += diff);
-                tokens.forEach(token => token.y += diff);
-            }
-            
-            // Handle frog movement
-            if (keys.left) {
-                frog.x -= frog.speed;
-            }
-            if (keys.right) {
-                frog.x += frog.speed;
-            }
-            
-            // Apply gravity
-            frog.velocity += frog.gravity;
-            frog.y += frog.velocity;
-            
-            // Screen wrapping for horizontal movement
-            if (frog.x < -frog.width) {
-                frog.x = gameCanvas.width;
-            } else if (frog.x > gameCanvas.width) {
-                frog.x = -frog.width;
-            }
-            
-            // Check for platform collisions
-            platforms.forEach((platform, index) => {
-                // Draw 3D platform
-                draw3DPlatform(platform);
-                
-                // Check collision with frog
-                if (frog.velocity > 0 && 
-                    frog.y + frog.height > platform.y && 
-                    frog.y + frog.height < platform.y + platform.height + 10 &&
-                    frog.x + frog.width > platform.x && 
-                    frog.x < platform.x + platform.width) {
-                    
-                    frog.jumping = false;
-                    frog.velocity = 0;
-                    frog.y = platform.y - frog.height;
-                    
-                    // Jump if space key is pressed
-                    if (keys.jump) {
-                        frog.velocity = -frog.jumpForce;
-                        frog.jumping = true;
-                    }
-                }
-                
-                // Remove platforms that are offscreen
-                if (platform.y > gameCanvas.height) {
-                    platforms.splice(index, 1);
-                    generatePlatform();
-                    score += 10;
-                    gameScoreElement.textContent = score;
-                    
-                    // Occasionally generate a new token
-                    if (Math.random() > 0.7) {
-                        generateToken();
-                    }
-                }
-            });
-            
-            // Check token collisions
-            tokens.forEach((token, index) => {
-                // Skip collected tokens
-                if (token.collected) return;
-                
-                // Draw token with glow effect
-                drawGlowingToken(token);
-                
-                // Check collision with frog
-                if (frog.x < token.x + token.width && 
-                    frog.x + frog.width > token.x && 
-                    frog.y < token.y + token.height && 
-                    frog.y + frog.height > token.y) {
-                    
-                    token.collected = true;
-                    score += 50;
-                    gameScoreElement.textContent = score;
-                }
-                
-                // Remove tokens that are offscreen or collected
-                if (token.y > gameCanvas.height || token.collected) {
-                    tokens.splice(index, 1);
-                    
-                    // Generate a new token to replace
-                    if (Math.random() > 0.3) {
-                        generateToken();
-                    }
-                }
-            });
-            
-            // Draw the soft-looking frog
-            drawSoftFrog();
-            
-            // Game over check
-            if (frog.y > gameCanvas.height) {
-                endGame();
-                return;
-            }
-            
-            // Continue game loop
-            window.requestAnimationFrame(gameLoop);
-        }
-        
-        // Function to create a realistic galactic background with parallax effect
-        function createGalacticBackground() {
-            // Create gradient for deep space
-            const bgGradient = ctx.createLinearGradient(0, 0, 0, gameCanvas.height);
-            bgGradient.addColorStop(0, '#0A0A2A'); // Deep space blue
-            bgGradient.addColorStop(0.3, '#190A33'); // Deep purple
-            bgGradient.addColorStop(0.6, '#330A33'); // Purple-pink blend
-            bgGradient.addColorStop(1, '#1A0A3A'); // Back to deep space
-            
-            ctx.fillStyle = bgGradient;
-            ctx.fillRect(0, 0, gameCanvas.width, gameCanvas.height);
-            
-            // Add nebula effect
-            const nebulaGradient = ctx.createRadialGradient(
-                gameCanvas.width * 0.7, 
-                (gameCanvas.height * 0.3 - camera * 0.05) % gameCanvas.height, 
-                10, 
-                gameCanvas.width * 0.7, 
-                (gameCanvas.height * 0.3 - camera * 0.05) % gameCanvas.height, 
-                200
-            );
-            nebulaGradient.addColorStop(0, 'rgba(147, 51, 234, 0.5)'); // Purple
-            nebulaGradient.addColorStop(0.5, 'rgba(147, 51, 234, 0.2)');
-            nebulaGradient.addColorStop(1, 'rgba(147, 51, 234, 0)');
-            
-            ctx.fillStyle = nebulaGradient;
-            ctx.fillRect(0, 0, gameCanvas.width, gameCanvas.height);
-            
-            // Second nebula
-            const nebulaGradient2 = ctx.createRadialGradient(
-                gameCanvas.width * 0.2, 
-                (gameCanvas.height * 0.7 - camera * 0.03) % gameCanvas.height, 
-                10, 
-                gameCanvas.width * 0.2, 
-                (gameCanvas.height * 0.7 - camera * 0.03) % gameCanvas.height, 
-                150
-            );
-            nebulaGradient2.addColorStop(0, 'rgba(236, 72, 153, 0.4)'); // Pink
-            nebulaGradient2.addColorStop(0.5, 'rgba(236, 72, 153, 0.2)');
-            nebulaGradient2.addColorStop(1, 'rgba(236, 72, 153, 0)');
-            
-            ctx.fillStyle = nebulaGradient2;
-            ctx.fillRect(0, 0, gameCanvas.width, gameCanvas.height);
-            
-            // Draw multiple star layers for parallax effect
-            // Distant stars (slow movement)
-            drawStarLayer(100, 1, 'rgba(255, 255, 255, 0.7)', 0.02);
-            
-            // Mid-distance stars (medium movement)
-            drawStarLayer(60, 2, 'rgba(255, 255, 255, 0.9)', 0.1);
-            
-            // Close stars (fast movement)
-            drawStarLayer(40, 3, '#FFFFFF', 0.2);
-            
-            // Draw moon
-            drawMoon();
-        }
-        
-        // Function to draw a layer of stars with parallax effect
-        function drawStarLayer(count, size, color, parallaxSpeed) {
-            for (let i = 0; i < count; i++) {
-                // Use a deterministic pattern so stars keep their relative position
-                const x = (i * 53 + gameCanvas.width / count * i) % gameCanvas.width;
-                const y = ((i * 79) % gameCanvas.height) - (camera * parallaxSpeed) % gameCanvas.height;
-                
-                // Make y wrap around
-                const yPos = y < 0 ? gameCanvas.height + y : y;
-                
-                // Add twinkle effect
-                const twinkle = 0.7 + 0.3 * Math.sin(Date.now() / 1000 + i);
-                
-                ctx.fillStyle = color;
-                ctx.beginPath();
-                ctx.arc(x, yPos, size * twinkle, 0, Math.PI * 2);
-                ctx.fill();
-                
-                // Add glow effect to some stars
-                if (i % 5 === 0) {
-                    ctx.beginPath();
-                    const glow = ctx.createRadialGradient(x, yPos, 0, x, yPos, size * 3);
-                    glow.addColorStop(0, 'rgba(255, 255, 255, 0.4)');
-                    glow.addColorStop(1, 'rgba(255, 255, 255, 0)');
-                    ctx.fillStyle = glow;
-                    ctx.arc(x, yPos, size * 3, 0, Math.PI * 2);
-                    ctx.fill();
-                }
-            }
-        }
-        
-        // Function to draw the moon with craters and glow
-        function drawMoon() {
-            const moonX = 500; 
-            const moonY = 80 - camera * 0.05;
-            const moonRadius = 40;
-            
-            // Moon glow
-            const moonGlow = ctx.createRadialGradient(
-                moonX, moonY, moonRadius * 0.8,
-                moonX, moonY, moonRadius * 2
-            );
-            moonGlow.addColorStop(0, 'rgba(251, 191, 36, 0.3)');
-            moonGlow.addColorStop(1, 'rgba(251, 191, 36, 0)');
-            
-            ctx.fillStyle = moonGlow;
-            ctx.beginPath();
-            ctx.arc(moonX, moonY, moonRadius * 2, 0, Math.PI * 2);
-            ctx.fill();
-            
-            // Moon body
-            const moonGradient = ctx.createRadialGradient(
-                moonX - moonRadius * 0.2, 
-                moonY - moonRadius * 0.2, 
-                0,
-                moonX, 
-                moonY, 
-                moonRadius
-            );
-            moonGradient.addColorStop(0, '#FEF3C7'); // Light yellow
-            moonGradient.addColorStop(0.8, '#FBBF24'); // Darker yellow
-            moonGradient.addColorStop(1, '#F59E0B'); // Orange-ish edge
-            
-            ctx.fillStyle = moonGradient;
-            ctx.beginPath();
-            ctx.arc(moonX, moonY, moonRadius, 0, Math.PI * 2);
-            ctx.fill();
-            
-            // Add some craters
-            drawCrater(moonX - 15, moonY - 10, moonRadius * 0.2);
-            drawCrater(moonX + 10, moonY + 15, moonRadius * 0.15);
-            drawCrater(moonX + 5, moonY - 20, moonRadius * 0.1);
-        }
-        
-        // Function to draw a moon crater
-        function drawCrater(x, y, size) {
-            const craterGradient = ctx.createRadialGradient(
-                x + size * 0.2, 
-                y + size * 0.2, 
-                0,
-                x, 
-                y, 
-                size
-            );
-            craterGradient.addColorStop(0, 'rgba(203, 213, 225, 0.7)'); // Lighter
-            craterGradient.addColorStop(1, 'rgba(148, 163, 184, 0.7)'); // Darker
-            
-            ctx.fillStyle = craterGradient;
-            ctx.beginPath();
-            ctx.arc(x, y, size, 0, Math.PI * 2);
-            ctx.fill();
-        }
-        
-        // Function to draw a 3D platform
-        function draw3DPlatform(platform) {
-            // Platform top surface
-            const gradientTop = ctx.createLinearGradient(
-                platform.x, 
-                platform.y, 
-                platform.x + platform.width, 
-                platform.y
-            );
-            gradientTop.addColorStop(0, '#C084FC'); // Light purple
-            gradientTop.addColorStop(1, '#9333EA'); // Darker purple
-            
-            ctx.fillStyle = gradientTop;
-            ctx.fillRect(platform.x, platform.y, platform.width, platform.height);
-            
-            // Platform front side (3D effect)
-            const gradientFront = ctx.createLinearGradient(
-                platform.x, 
-                platform.y + platform.height, 
-                platform.x, 
-                platform.y + platform.height + 10
-            );
-            gradientFront.addColorStop(0, '#9333EA'); // Darker purple
-            gradientFront.addColorStop(1, '#6B21A8'); // Even darker purple
-            
-            ctx.fillStyle = gradientFront;
-            ctx.beginPath();
-            ctx.rect(platform.x, platform.y + platform.height, platform.width, 10);
-            ctx.fill();
-            
-            // Platform right side (3D effect)
-            const gradientSide = ctx.createLinearGradient(
-                platform.x + platform.width, 
-                platform.y, 
-                platform.x + platform.width + 5, 
-                platform.y
-            );
-            gradientSide.addColorStop(0, '#9333EA'); // Darker purple
-            gradientSide.addColorStop(1, '#6B21A8'); // Even darker purple
-            
-            ctx.fillStyle = gradientSide;
-            ctx.beginPath();
-            ctx.moveTo(platform.x + platform.width, platform.y);
-            ctx.lineTo(platform.x + platform.width + 5, platform.y + 5);
-            ctx.lineTo(platform.x + platform.width + 5, platform.y + platform.height + 10);
-            ctx.lineTo(platform.x + platform.width, platform.y + platform.height + 10);
-            ctx.closePath();
-            ctx.fill();
-            
-            // Top edge highlight
-            ctx.strokeStyle = 'rgba(255, 255, 255, 0.8)';
-            ctx.lineWidth = 2;
-            ctx.beginPath();
-            ctx.moveTo(platform.x, platform.y);
-            ctx.lineTo(platform.x + platform.width, platform.y);
-            ctx.stroke();
-        }
-        
-        // Function to draw a glowing token
-        function drawGlowingToken(token) {
-            // Token glow
-            const tokenGlow = ctx.createRadialGradient(
-                token.x + token.width/2, 
-                token.y + token.height/2, 
-                token.width/4,
-                token.x + token.width/2, 
-                token.y + token.height/2, 
-                token.width
-            );
-            tokenGlow.addColorStop(0, 'rgba(251, 191, 36, 0.6)');
-            tokenGlow.addColorStop(1, 'rgba(251, 191, 36, 0)');
-            
-            ctx.fillStyle = tokenGlow;
-            ctx.beginPath();
-            ctx.arc(token.x + token.width/2, token.y + token.height/2, token.width, 0, Math.PI * 2);
-            ctx.fill();
-            
-            // Token body
-            const tokenGradient = ctx.createRadialGradient(
-                token.x + token.width/2 - token.width/6, 
-                token.y + token.height/2 - token.height/6, 
-                0,
-                token.x + token.width/2, 
-                token.y + token.height/2, 
-                token.width/2
-            );
-            tokenGradient.addColorStop(0, '#FEF3C7'); // Light yellow
-            tokenGradient.addColorStop(0.8, '#FBBF24'); // Darker yellow
-            
-            ctx.fillStyle = tokenGradient;
-            ctx.beginPath();
-            ctx.arc(token.x + token.width/2, token.y + token.height/2, token.width/2, 0, Math.PI * 2);
-            ctx.fill();
-            
-            // Token border
-            ctx.strokeStyle = 'rgba(255, 255, 255, 0.8)';
-            ctx.lineWidth = 2;
-            ctx.beginPath();
-            ctx.arc(token.x + token.width/2, token.y + token.height/2, token.width/2, 0, Math.PI * 2);
-            ctx.stroke();
-            
-            // Draw $ symbol
-            ctx.fillStyle = '#4C1D95';
-            ctx.font = 'bold 14px Bangers';
-            ctx.textAlign = 'center';
-            ctx.textBaseline = 'middle';
-            ctx.fillText('$', token.x + token.width/2, token.y + token.height/2);
-        }
-        
-        // Function to draw a soft-looking frog
-        function drawSoftFrog() {
-            const centerX = frog.x + frog.width/2;
-            const centerY = frog.y + frog.height/2;
-            
-            // Draw frog shadow
-            ctx.fillStyle = 'rgba(0, 0, 0, 0.3)';
-            ctx.beginPath();
-            ctx.ellipse(centerX + 2, centerY + 4, frog.width/2, frog.height/3, 0, 0, Math.PI * 2);
-            ctx.fill();
-            
-            // Draw frog body with gradient for 3D effect
-            const bodyGradient = ctx.createRadialGradient(
-                centerX - frog.width/6, 
-                centerY - frog.height/6, 
-                0,
-                centerX, 
-                centerY, 
-                frog.width/2
-            );
-            bodyGradient.addColorStop(0, '#86EFAC'); // Light green
-            bodyGradient.addColorStop(0.7, '#6EE7B7'); // Main green
-            bodyGradient.addColorStop(1, '#34D399'); // Darker green for edge
-            
-            ctx.fillStyle = bodyGradient;
-            ctx.beginPath();
-            ctx.arc(centerX, centerY, frog.width/2, 0, Math.PI * 2);
-            ctx.fill();
-            
-            // Add a soft highlight
-            ctx.fillStyle = 'rgba(255, 255, 255, 0.3)';
-            ctx.beginPath();
-            ctx.arc(centerX - frog.width/6, centerY - frog.height/6, frog.width/5, 0, Math.PI * 2);
-            ctx.fill();
-            
-            // Draw eyes background (white)
-            ctx.fillStyle = 'white';
-            ctx.beginPath();
-            ctx.arc(centerX - frog.width/4, centerY - frog.height/6, frog.width/8, 0, Math.PI * 2);
-            ctx.arc(centerX + frog.width/4, centerY - frog.height/6, frog.width/8, 0, Math.PI * 2);
-            ctx.fill();
-            
-            // Draw pupils
-            const pupilOffset = keys.left ? -2 : (keys.right ? 2 : 0);
-            
-            // Add eye shine
-            ctx.fillStyle = 'rgba(255, 255, 255, 0.8)';
-            ctx.beginPath();
-            ctx.arc(centerX - frog.width/4 + pupilOffset - 1, centerY - frog.height/6 - 1, frog.width/24, 0, Math.PI * 2);
-            ctx.arc(centerX + frog.width/4 + pupilOffset - 1, centerY - frog.height/6 - 1, frog.width/24, 0, Math.PI * 2);
-            ctx.fill();
-            
-            // Draw pupils
-            ctx.fillStyle = '#4C1D95';
-            ctx.beginPath();
-            ctx.arc(centerX - frog.width/4 + pupilOffset, centerY - frog.height/6, frog.width/12, 0, Math.PI * 2);
-            ctx.arc(centerX + frog.width/4 + pupilOffset, centerY - frog.height/6, frog.width/12, 0, Math.PI * 2);
-            ctx.fill();
-            
-            // Draw mouth based on movement
-            ctx.strokeStyle = '#4C1D95';
-            ctx.lineWidth = 2;
-            ctx.beginPath();
-            // Smile when moving, straight line when still
-            if (keys.left || keys.right || frog.velocity < 0) {
-                ctx.arc(centerX, centerY + frog.height/6, frog.width/5, 0.1 * Math.PI, 0.9 * Math.PI);
-            } else {
-                ctx.moveTo(centerX - frog.width/5, centerY + frog.height/6);
-                ctx.lineTo(centerX + frog.width/5, centerY + frog.height/6);
-            }
-            ctx.stroke();
-            
-            // Add bounce effect when jumping or landing
-            if (frog.velocity < -2) {
-                // Squish vertically when jumping
-                ctx.beginPath();
-                ctx.fillStyle = 'rgba(255, 255, 255, 0.2)';
-                ctx.ellipse(centerX, centerY + frog.height/3, frog.width/3, frog.height/8, 0, 0, Math.PI * 2);
-                ctx.fill();
-            } else if (frog.velocity > 2) {
-                // Squish horizontally when falling
-                ctx.beginPath();
-                ctx.fillStyle = 'rgba(255, 255, 255, 0.2)';
-                ctx.ellipse(centerX, centerY - frog.height/6, frog.width/3, frog.height/12, 0, 0, Math.PI * 2);
-                ctx.fill();
-            }
-        }
-        
-        // End game function
-        function endGame() {
-            gameActive = false;
-            gameOver.style.display = 'flex';
-            finalScoreElement.textContent = score;
-            
-            // Update high score if needed
-            if (score > highScore) {
-                highScore = score;
-                localStorage.setItem('froggleHighScore', highScore);
-                highScoreElement.textContent = highScore;
-            }
-        }
-        
-        // Event listeners
-        startGameBtn.addEventListener('click', initGame);
-        restartGameBtn.addEventListener('click', initGame);
-        
-        // Keyboard controls
-        window.addEventListener('keydown', (e) => {
-            if (e.key === 'ArrowLeft' || e.key === 'a') keys.left = true;
-            if (e.key === 'ArrowRight' || e.key === 'd') keys.right = true;
-            if (e.key === 'ArrowUp' || e.key === 'w' || e.key === ' ') keys.jump = true;
-            
-            // Prevent page scrolling when using space for the game
-            if (e.key === ' ' && gameActive) {
-                e.preventDefault();
-            }
-        });
-        
-        window.addEventListener('keyup', (e) => {
-            if (e.key === 'ArrowLeft' || e.key === 'a') keys.left = false;
-            if (e.key === 'ArrowRight' || e.key === 'd') keys.right = false;
-            if (e.key === 'ArrowUp' || e.key === 'w' || e.key === ' ') keys.jump = false;
-        });
-        
-        // Touch controls for mobile (basic)
-        let touchStartX = 0;
-        gameCanvas.addEventListener('touchstart', (e) => {
-            touchStartX = e.touches[0].clientX;
-            keys.jump = true;
-        });
-        
-        gameCanvas.addEventListener('touchmove', (e) => {
-            const touchX = e.touches[0].clientX;
-            const diff = touchX - touchStartX;
-            
-            if (diff < -20) {
-                keys.left = true;
-                keys.right = false;
-            } else if (diff > 20) {
-                keys.right = true;
-                keys.left = false;
-            }
-            
-            e.preventDefault();
-        });
-        
-        gameCanvas.addEventListener('touchend', () => {
-            keys.left = false;
-            keys.right = false;
-            keys.jump = false;
-        });
-    });
-    </script>
-
-    <!-- Froggle Flipper Game -->
-    <script>
-    // Froggle Flipper Game
-    document.addEventListener('DOMContentLoaded', function() {
-        // Tab switcher
-        const game1Tab = document.getElementById('game1Tab');
-        const game2Tab = document.getElementById('game2Tab');
-        const game1Container = document.getElementById('game1Container');
-        const game2Container = document.getElementById('game2Container');
-        
-        game1Tab.addEventListener('click', function() {
-            game1Container.classList.remove('hidden');
-            game2Container.classList.add('hidden');
-            game1Tab.classList.add('bg-frogYellow', 'text-frogIndigo');
-            game1Tab.classList.remove('text-white', 'hover:bg-frogPurple');
-            game2Tab.classList.remove('bg-frogYellow', 'text-frogIndigo');
-            game2Tab.classList.add('text-white', 'hover:bg-frogPurple');
-        });
-        
-        game2Tab.addEventListener('click', function() {
-            game1Container.classList.add('hidden');
-            game2Container.classList.remove('hidden');
-            game1Tab.classList.remove('bg-frogYellow', 'text-frogIndigo');
-            game1Tab.classList.add('text-white', 'hover:bg-frogPurple');
-            game2Tab.classList.add('bg-frogYellow', 'text-frogIndigo');
-            game2Tab.classList.remove('text-white', 'hover:bg-frogPurple');
-        });
-        
-        // Froggle Flipper Game Elements
-        const chooseFrogBtn = document.getElementById('chooseFrog');
-        const chooseTokenBtn = document.getElementById('chooseToken');
-        const flipCoinBtn = document.getElementById('flipCoin');
-        const coinFrogSide = document.getElementById('coinFrogSide');
-        const coinTokenSide = document.getElementById('coinTokenSide');
-        const flipResult = document.getElementById('flipResult');
-        const frogWinsElement = document.getElementById('frogWins');
-        const tokenWinsElement = document.getElementById('tokenWins');
-        const winStreakElement = document.getElementById('winStreak');
-        const flipperBonusElement = document.getElementById('flipperBonus');
-        
-        // Game state
-        let selectedSide = null;
-        let isFlipping = false;
-        let frogWins = 0;
-        let tokenWins = 0;
-        let winStreak = 0;
-        let maxStreak = localStorage.getItem('froggleFlipperMaxStreak') || 0;
-        
-        // Load saved stats
-        const savedFrogWins = localStorage.getItem('froggleFlipperFrogWins');
-        const savedTokenWins = localStorage.getItem('froggleFlipperTokenWins');
-        const savedWinStreak = localStorage.getItem('froggleFlipperWinStreak');
-        
-        if (savedFrogWins) {
-            frogWins = parseInt(savedFrogWins);
-            frogWinsElement.textContent = frogWins;
-        }
-        
-        if (savedTokenWins) {
-            tokenWins = parseInt(savedTokenWins);
-            tokenWinsElement.textContent = tokenWins;
-        }
-        
-        if (savedWinStreak) {
-            winStreak = parseInt(savedWinStreak);
-            winStreakElement.textContent = winStreak;
-            updateBonus();
-        }
-        
-        // Choose side handlers
-        chooseFrogBtn.addEventListener('click', function() {
-            selectSide('frog');
-        });
-        
-        chooseTokenBtn.addEventListener('click', function() {
-            selectSide('token');
-        });
-        
-        // Select side function
-        function selectSide(side) {
-            if (isFlipping) return;
-            
-            selectedSide = side;
-            flipCoinBtn.disabled = false;
-            flipCoinBtn.classList.remove('bg-gray-500');
-            flipCoinBtn.classList.add('bg-frogPink');
-            
-            if (side === 'frog') {
-                chooseFrogBtn.classList.add('ring-4', 'ring-white');
-                chooseTokenBtn.classList.remove('ring-4', 'ring-white');
-                flipResult.textContent = "You chose: FROG side!";
-            } else {
-                chooseFrogBtn.classList.remove('ring-4', 'ring-white');
-                chooseTokenBtn.classList.add('ring-4', 'ring-white');
-                flipResult.textContent = "You chose: TOKEN side!";
-            }
-        }
-        
-        // Flip coin handler
-        flipCoinBtn.addEventListener('click', function() {
-            if (!selectedSide || isFlipping) return;
-            
-            isFlipping = true;
-            flipCoinBtn.disabled = true;
-            flipCoinBtn.classList.add('bg-gray-500');
-            flipCoinBtn.classList.remove('bg-frogPink');
-            
-            flipResult.textContent = "Flipping...";
-            
-            // Get random result (50/50 chance)
-            const result = Math.random() < 0.5 ? 'frog' : 'token';
-            
-            // Start the flipping animation
-            const coin = document.getElementById('coinFrogSide');
-            coin.style.transform = 'rotateY(0deg)';
-            
-            // Determine how many flips to do
-            const flips = 5 + Math.floor(Math.random() * 5); // 5-9 flips
-            let currentFlip = 0;
-            
-            // Create a flip animation
-            const flipInterval = setInterval(() => {
-                currentFlip++;
-                
-                // Toggle between sides
-                if (currentFlip % 2 === 1) {
-                    coinFrogSide.style.transform = 'rotateY(180deg)';
-                    coinTokenSide.style.transform = 'rotateY(0deg)';
-                } else {
-                    coinFrogSide.style.transform = 'rotateY(0deg)';
-                    coinTokenSide.style.transform = 'rotateY(180deg)';
-                }
-                
-                // End after the desired number of flips
-                if (currentFlip >= flips) {
-                    clearInterval(flipInterval);
-                    
-                    // Show final result
-                    setTimeout(() => {
-                        if (result === 'frog') {
-                            coinFrogSide.style.transform = 'rotateY(0deg)';
-                            coinTokenSide.style.transform = 'rotateY(180deg)';
-                        } else {
-                            coinFrogSide.style.transform = 'rotateY(180deg)';
-                            coinTokenSide.style.transform = 'rotateY(0deg)';
-                        }
-                        
-                        // Check if player won
-                        const playerWon = selectedSide === result;
-                        
-                        if (playerWon) {
-                            flipResult.textContent = `You WIN! It's ${result.toUpperCase()}!`;
-                            flipResult.classList.remove('text-white');
-                            flipResult.classList.add('text-frogYellow');
-                            
-                            // Update win count and streak
-                            if (result === 'frog') {
-                                frogWins++;
-                                frogWinsElement.textContent = frogWins;
-                            } else {
-                                tokenWins++;
-                                tokenWinsElement.textContent = tokenWins;
-                            }
-                            
-                            winStreak++;
-                            winStreakElement.textContent = winStreak;
-                            
-                            // Check for new max streak
-                            if (winStreak > maxStreak) {
-                                maxStreak = winStreak;
-                            }
-                            
-                            // Update bonus
-                            updateBonus();
-                            
-                            // Save stats
-                            localStorage.setItem('froggleFlipperFrogWins', frogWins);
-                            localStorage.setItem('froggleFlipperTokenWins', tokenWins);
-                            localStorage.setItem('froggleFlipperWinStreak', winStreak);
-                            localStorage.setItem('froggleFlipperMaxStreak', maxStreak);
-                            
-                            // Reset for next flip
-                            setTimeout(() => {
-                                isFlipping = false;
-                                selectedSide = null;
-                                chooseFrogBtn.classList.remove('ring-4', 'ring-white');
-                                chooseTokenBtn.classList.remove('ring-4', 'ring-white');
-                            }, 1500);
-                        } else {
-                            flipResult.textContent = `You lose! It's ${result.toUpperCase()}!`;
-                            flipResult.classList.remove('text-frogYellow');
-                            flipResult.classList.add('text-white');
-                            
-                            // Reset streak
-                            winStreak = 0;
-                            winStreakElement.textContent = winStreak;
-                            
-                            // Update bonus
-                            updateBonus();
-                        }
-                        
-                        // Reset for next flip
-                        setTimeout(() => {
-                            isFlipping = false;
-                            selectedSide = null;
-                            chooseFrogBtn.classList.remove('ring-4', 'ring-white');
-                            chooseTokenBtn.classList.remove('ring-4', 'ring-white');
-                        }, 1500);
-                    }, 100);
-                }
-            }, 200);
-        });
-        
-        // Update bonus percentage based on win streak
-        function updateBonus() {
-            // 2% per win, max 10%
-            const bonus = Math.min(winStreak * 2, 10);
-            flipperBonusElement.textContent = `${bonus}%`;
-        }
-    });
-    </script>
-
-    <!-- Token Catcher Game -->
-    <script>
-    // Token Catcher Game
-    document.addEventListener('DOMContentLoaded', function() {
-        // Aggiorniamo tab switcher per includere il terzo gioco
-        const game1Tab = document.getElementById('game1Tab');
-        const game2Tab = document.getElementById('game2Tab');
-        const game3Tab = document.getElementById('game3Tab');
-        const game1Container = document.getElementById('game1Container');
-        const game2Container = document.getElementById('game2Container');
-        const game3Container = document.getElementById('game3Container');
-        
-        game1Tab.addEventListener('click', function() {
-            // Nascondi tutti i container
-            game1Container.classList.remove('hidden');
-            game2Container.classList.add('hidden');
-            game3Container.classList.add('hidden');
-            
-            // Aggiorna stili dei tab
-            game1Tab.classList.add('bg-frogYellow', 'text-frogIndigo');
-            game1Tab.classList.remove('text-white', 'hover:bg-frogPurple');
-            game2Tab.classList.remove('bg-frogYellow', 'text-frogIndigo');
-            game2Tab.classList.add('text-white', 'hover:bg-frogPurple');
-            game3Tab.classList.remove('bg-frogYellow', 'text-frogIndigo');
-            game3Tab.classList.add('text-white', 'hover:bg-frogPurple');
-        });
-        
-        game2Tab.addEventListener('click', function() {
-            // Nascondi tutti i container
-            game1Container.classList.add('hidden');
-            game2Container.classList.remove('hidden');
-            game3Container.classList.add('hidden');
-            
-            // Aggiorna stili dei tab
-            game1Tab.classList.remove('bg-frogYellow', 'text-frogIndigo');
-            game1Tab.classList.add('text-white', 'hover:bg-frogPurple');
-            game2Tab.classList.add('bg-frogYellow', 'text-frogIndigo');
-            game2Tab.classList.remove('text-white', 'hover:bg-frogPurple');
-            game3Tab.classList.remove('bg-frogYellow', 'text-frogIndigo');
-            game3Tab.classList.add('text-white', 'hover:bg-frogPurple');
-        });
-        
-        game3Tab.addEventListener('click', function() {
-            // Nascondi tutti i container
-            game1Container.classList.add('hidden');
-            game2Container.classList.add('hidden');
-            game3Container.classList.remove('hidden');
-            
-            // Aggiorna stili dei tab
-            game1Tab.classList.remove('bg-frogYellow', 'text-frogIndigo');
-            game1Tab.classList.add('text-white', 'hover:bg-frogPurple');
-            game2Tab.classList.remove('bg-frogYellow', 'text-frogIndigo');
-            game2Tab.classList.add('text-white', 'hover:bg-frogPurple');
-            game3Tab.classList.add('bg-frogYellow', 'text-frogIndigo');
-            game3Tab.classList.remove('text-white', 'hover:bg-frogPurple');
-        });
-        
-        // Token Catcher Game Elements
-        const catcherCanvas = document.getElementById('catcherCanvas');
-        const ctx = catcherCanvas.getContext('2d');
-        const catcherStart = document.getElementById('catcherStart');
-        const catcherOver = document.getElementById('catcherOver');
-        const startCatcherBtn = document.getElementById('startCatcherBtn');
-        const restartCatcherBtn = document.getElementById('restartCatcherBtn');
-        const catcherScoreElement = document.getElementById('catcherScore');
-        const catcherLivesElement = document.getElementById('catcherLives');
-        const catcherFinalScoreElement = document.getElementById('catcherFinalScore');
-        const catcherHighScoreElement = document.getElementById('catcherHighScore');
-        
-        // Game variables
-        let gameActive = false;
-        let score = 0;
-        let lives = 3;
-        let highScore = localStorage.getItem('froggleCatcherHighScore') || 0;
-        catcherHighScoreElement.textContent = highScore;
-        
-        // Game objects
-        const frog = {
-            x: 300,
-            y: 420,
-            width: 60,
-            height: 40,
-            speed: 8,
-            color: '#6EE7B7',
-            tongueOut: false,
-            tongueHeight: 0,
-            tongueWidth: 10,
-            tongueColor: '#EC4899',
-            tongueSpeed: 15,
-            maxTongueHeight: 350
-        };
-        
-        let fallingObjects = [];
-        const objectTypes = {
-            token: {
-                width: 30,
-                height: 30,
-                color: '#FBBF24',
-                value: 10,
-                speed: 3,
-                spawnRate: 0.03,
-                symbol: '$'
-            },
-            goldenToken: {
-                width: 40,
-                height: 40,
-                color: '#FEF08A',
-                value: 50,
-                speed: 5,
-                spawnRate: 0.01,
-                symbol: '$$'
-            },
-            bug: {
-                width: 25,
-                height: 25,
-                color: '#F87171',
-                value: -1,  // -1 means lose a life
-                speed: 4,
-                spawnRate: 0.02,
-                symbol: '✗'
-            }
-        };
-        
-        // Key controls
-        const keys = {
-            left: false,
-            right: false,
-            space: false,
-            spaceReleased: true  // Track if space has been released since last press
-        };
-        
-        // Game initialization
-        function initGame() {
-            // Reset variables
-            gameActive = true;
-            score = 0;
-            lives = 3;
-            catcherScoreElement.textContent = score;
-            catcherLivesElement.textContent = lives;
-            
-            // Reset frog position
-            frog.x = catcherCanvas.width / 2 - frog.width / 2;
-            frog.y = catcherCanvas.height - frog.height - 20;
-            frog.tongueOut = false;
-            frog.tongueHeight = 0;
-            
-            // Clear falling objects
-            fallingObjects = [];
-            
-            // Hide start screen, show game
-            catcherStart.style.display = 'none';
-            catcherOver.style.display = 'none';
-            
-            // Start game loop
-            window.requestAnimationFrame(gameLoop);
-        }
-        
-        // Generate random falling object
-        function generateObject() {
-            // Determine which type of object to spawn based on spawnRates
-            const rand = Math.random();
-            let type;
-            
-            if (rand < objectTypes.goldenToken.spawnRate) {
-                type = 'goldenToken';
-            } else if (rand < objectTypes.goldenToken.spawnRate + objectTypes.bug.spawnRate) {
-                type = 'bug';
-            } else if (rand < objectTypes.goldenToken.spawnRate + objectTypes.bug.spawnRate + objectTypes.token.spawnRate) {
-                type = 'token';
-            } else {
-                return; // Don't spawn anything this frame
-            }
-            
-            const typeProps = objectTypes[type];
-            
-            // Create the object
-            fallingObjects.push({
-                x: Math.random() * (catcherCanvas.width - typeProps.width),
-                y: -typeProps.height,
-                width: typeProps.width,
-                height: typeProps.height,
-                color: typeProps.color,
-                type: type,
-                value: typeProps.value,
-                speed: typeProps.speed * (1 + Math.random() * 0.5),  // Add some randomness to speed
-                symbol: typeProps.symbol
-            });
-        }
-        
-        // Update tongue movement
-        function updateTongue() {
-            if (keys.space && keys.spaceReleased && !frog.tongueOut) {
-                // Start extending tongue
-                frog.tongueOut = true;
-                frog.tongueHeight = 0;
-                keys.spaceReleased = false;
-            }
-            
-            if (frog.tongueOut) {
-                if (frog.tongueHeight < frog.maxTongueHeight) {
-                    // Extend tongue
-                    frog.tongueHeight += frog.tongueSpeed;
-                } else {
-                    // Retract tongue
-                    frog.tongueOut = false;
-                    frog.tongueHeight = 0;
-                }
-            }
-        }
-        
-        // Game loop
-        function gameLoop() {
-            if (!gameActive) return;
-            
-            // Clear canvas
-            ctx.clearRect(0, 0, catcherCanvas.width, catcherCanvas.height);
-            
-            // Draw background (night pond)
-            ctx.fillStyle = '#4C1D95';
-            ctx.fillRect(0, 0, catcherCanvas.width, catcherCanvas.height);
-            
-            // Draw stars (as small water reflections)
-            for (let i = 0; i < 30; i++) {
-                const x = (i * 53) % catcherCanvas.width;
-                const y = (i * 79) % catcherCanvas.height;
-                const size = Math.random() * 2 + 1;
-                ctx.fillStyle = 'rgba(255, 255, 255, 0.4)';
-                ctx.beginPath();
-                ctx.arc(x, y, size, 0, Math.PI * 2);
-                ctx.fill();
-            }
-            
-            // Draw lily pad under frog
-            ctx.fillStyle = '#065F46';
-            ctx.beginPath();
-            ctx.ellipse(frog.x + frog.width/2, frog.y + frog.height + 5, frog.width * 0.8, 15, 0, 0, Math.PI * 2);
-            ctx.fill();
-            ctx.strokeStyle = '#10B981';
-            ctx.lineWidth = 2;
-            ctx.stroke();
-            
-            // Possibly generate new falling object
-            generateObject();
-            
-            // Handle frog movement
-            if (keys.left && frog.x > 0) {
-                frog.x -= frog.speed;
-            }
-            if (keys.right && frog.x < catcherCanvas.width - frog.width) {
-                frog.x += frog.speed;
-            }
-            
-            // Update tongue
-            updateTongue();
-            
-            // Draw the tongue if it's out
-            if (frog.tongueOut) {
-                ctx.fillStyle = frog.tongueColor;
-                ctx.fillRect(frog.x + frog.width/2 - frog.tongueWidth/2, 
-                           frog.y - frog.tongueHeight, 
-                           frog.tongueWidth, 
-                           frog.tongueHeight);
-            }
-            
-            // Draw the frog
-            // Body
-            ctx.fillStyle = frog.color;
-            ctx.beginPath();
-            ctx.ellipse(frog.x + frog.width/2, frog.y + frog.height/2, frog.width/2, frog.height/2, 0, 0, Math.PI * 2);
-            ctx.fill();
-            ctx.strokeStyle = 'white';
-            ctx.lineWidth = 2;
-            ctx.stroke();
-            
-            // Eyes
-            ctx.fillStyle = 'white';
-            ctx.beginPath();
-            ctx.arc(frog.x + frog.width/2 - 15, frog.y + frog.height/2 - 10, 8, 0, Math.PI * 2);
-            ctx.arc(frog.x + frog.width/2 + 15, frog.y + frog.height/2 - 10, 8, 0, Math.PI * 2);
-            ctx.fill();
-            
-            // Pupils
-            ctx.fillStyle = '#4C1D95';
-            ctx.beginPath();
-            const pupilOffset = keys.left ? -2 : (keys.right ? 2 : 0);
-            ctx.arc(frog.x + frog.width/2 - 15 + pupilOffset, frog.y + frog.height/2 - 10, 4, 0, Math.PI * 2);
-            ctx.arc(frog.x + frog.width/2 + 15 + pupilOffset, frog.y + frog.height/2 - 10, 4, 0, Math.PI * 2);
-            ctx.fill();
-            
-            // Mouth
-            ctx.strokeStyle = '#4C1D95';
-            ctx.lineWidth = 2;
-            ctx.beginPath();
-            
-            // Different mouth expression based on whether tongue is out
-            if (frog.tongueOut) {
-                // Open mouth
-                ctx.arc(frog.x + frog.width/2, frog.y + frog.height/2 + 5, 12, 0, Math.PI);
-            } else {
-                // Smile
-                ctx.arc(frog.x + frog.width/2, frog.y + frog.height/2 + 5, 10, 0.1 * Math.PI, 0.9 * Math.PI);
-            }
-            ctx.stroke();
-            
-            // Update and draw falling objects
-            fallingObjects.forEach((obj, index) => {
-                // Update position
-                obj.y += obj.speed;
-                
-                // Draw object
-                ctx.fillStyle = obj.color;
-                
-                if (obj.type === 'bug') {
-                    // Draw a simple bug
-                    ctx.beginPath();
-                    ctx.ellipse(obj.x + obj.width/2, obj.y + obj.height/2, obj.width/2, obj.height/2, 0, 0, Math.PI * 2);
-                    ctx.fill();
-                    
-                    // Draw wings
-                    ctx.beginPath();
-                    ctx.ellipse(obj.x + obj.width/2 - 10, obj.y + obj.height/2, 8, 5, Math.PI/4, 0, Math.PI * 2);
-                    ctx.ellipse(obj.x + obj.width/2 + 10, obj.y + obj.height/2, 8, 5, -Math.PI/4, 0, Math.PI * 2);
-                    ctx.fill();
-                    
-                    // Draw eyes
-                    ctx.fillStyle = 'white';
-                    ctx.beginPath();
-                    ctx.arc(obj.x + obj.width/2 - 5, obj.y + obj.height/2 - 5, 2, 0, Math.PI * 2);
-                    ctx.arc(obj.x + obj.width/2 + 5, obj.y + obj.height/2 - 5, 2, 0, Math.PI * 2);
-                    ctx.fill();
-                } else {
-                    // Draw a token
-                    ctx.beginPath();
-                    ctx.arc(obj.x + obj.width/2, obj.y + obj.height/2, obj.width/2, 0, Math.PI * 2);
-                    ctx.fill();
-                    ctx.strokeStyle = 'white';
-                    ctx.lineWidth = 2;
-                    ctx.stroke();
-                    
-                    // Draw $ symbol
-                    ctx.fillStyle = '#4C1D95';
-                    ctx.font = obj.type === 'goldenToken' ? '16px Bangers' : '14px Bangers';
-                    ctx.textAlign = 'center';
-                    ctx.textBaseline = 'middle';
-                    ctx.fillText(obj.symbol, obj.x + obj.width/2, obj.y + obj.height/2);
-                }
-                
-                // Check for tongue collision if tongue is out
-                if (frog.tongueOut && 
-                    obj.x < frog.x + frog.width/2 + frog.tongueWidth/2 &&
-                    obj.x + obj.width > frog.x + frog.width/2 - frog.tongueWidth/2 &&
-                    obj.y < frog.y &&
-                    obj.y + obj.height > frog.y - frog.tongueHeight) {
-                    
-                    // Caught something!
-                    if (obj.type === 'bug') {
-                        // Lost a life!
-                        lives--;
-                        catcherLivesElement.textContent = lives;
-                        
-                        // Visual feedback
-                        frog.color = '#F87171'; // Red flash
-                        setTimeout(() => {
-                            frog.color = '#6EE7B7'; // Reset color
-                        }, 200);
-                        
-                        // Check for game over
-                        if (lives <= 0) {
-                            endGame();
-                            return;
-                        }
-                    } else {
-                        // Got points!
-                        score += obj.value;
-                        catcherScoreElement.textContent = score;
-                    }
-                    
-                    // Remove the object
-                    fallingObjects.splice(index, 1);
-                }
-                
-                // Check if object went off-screen
-                if (obj.y > catcherCanvas.height) {
-                    fallingObjects.splice(index, 1);
-                }
-            });
-            
-            // Continue game loop
-            window.requestAnimationFrame(gameLoop);
-        }
-        
-        // End game function
-        function endGame() {
-            gameActive = false;
-            catcherOver.style.display = 'flex';
-            catcherFinalScoreElement.textContent = score;
-            
-            // Update high score if needed
-            if (score > highScore) {
-                highScore = score;
-                localStorage.setItem('froggleCatcherHighScore', highScore);
-                catcherHighScoreElement.textContent = highScore;
-            }
-        }
-        
-        // Event listeners
-        startCatcherBtn.addEventListener('click', initGame);
-        restartCatcherBtn.addEventListener('click', initGame);
-        
-        // Keyboard controls
-        window.addEventListener('keydown', (e) => {
-            if (e.key === 'ArrowLeft' || e.key === 'a') keys.left = true;
-            if (e.key === 'ArrowRight' || e.key === 'd') keys.right = true;
-            if (e.key === ' ') keys.space = true;
-            
-            // Prevent page scrolling when using space for the game
-            if (e.key === ' ' && gameActive) {
-                e.preventDefault();
-            }
-        });
-        
-        window.addEventListener('keyup', (e) => {
-            if (e.key === 'ArrowLeft' || e.key === 'a') keys.left = false;
-            if (e.key === 'ArrowRight' || e.key === 'd') keys.right = false;
-            if (e.key === ' ') {
-                keys.space = false;
-                keys.spaceReleased = true;
-            }
-        });
-        
-        // Touch controls for mobile (basic)
-        let touchStartX = 0;
-        catcherCanvas.addEventListener('touchstart', (e) => {
-            touchStartX = e.touches[0].clientX;
-            
-            // Center tap = use tongue
-            if (Math.abs(touchStartX - catcherCanvas.width/2) < 100) {
-                keys.space = true;
-            }
-        });
-        
-        catcherCanvas.addEventListener('touchmove', (e) => {
-            const touchX = e.touches[0].clientX;
-            const diff = touchX - touchStartX;
-            
-            if (diff < -20) {
-                keys.left = true;
-                keys.right = false;
-            } else if (diff > 20) {
-                keys.right = true;
-                keys.left = false;
-            }
-            
-            touchStartX = touchX;
-            e.preventDefault();
-        });
-        
-        catcherCanvas.addEventListener('touchend', () => {
-            keys.left = false;
-            keys.right = false;
-            keys.space = false;
-            keys.spaceReleased = true;
-        });
-    });
     </script>
 
     <!-- Solana Web3.js -->

@@ -40,18 +40,20 @@
             theme: {
                 extend: {
                     colors: {
-                        frogPurple: '#9333EA',    // Viola principale
-                        frogLavender: '#C084FC',  // Lavanda chiaro
-                        frogIndigo: '#4C1D95',    // Viola scuro/indigo
-                        frogBright: '#D946EF',    // Viola brillante
-                        frogYellow: '#FBBF24',    // Giallo cartoon
-                        frogPink: '#EC4899',      // Rosa cartoon
+                        frogPurple: '#6B46C1',    // Viola più professionale
+                        frogLavender: '#A78BFA',  // Lavanda più soft
+                        frogIndigo: '#4338CA',    // Indigo più professionale
+                        frogBright: '#8B5CF6',    // Viola brillante più elegante
+                        frogYellow: '#FBBF24',    // Giallo cartoon (mantenuto)
+                        frogPink: '#EC4899',      // Rosa cartoon (mantenuto)
+                        frogAccent: '#34D399',    // Verde acqua per accenti
+                        frogDark: '#312E81',      // Viola scuro per sfondi
                     },
                     borderRadius: {
                         'cartoon': '2rem',
                     },
                     boxShadow: {
-                        'cartoon': '0.5rem 0.5rem 0 #C084FC',
+                        'cartoon': '0.5rem 0.5rem 0 #A78BFA',
                         'cartoon-inner': 'inset 0.25rem 0.25rem 0 rgba(255,255,255,0.2), inset -0.25rem -0.25rem 0 rgba(0,0,0,0.2)'
                     },
                 }
@@ -66,11 +68,11 @@
     <script src="https://unpkg.com/@solana/wallet-adapter-wallets@latest/lib/index.iife.js"></script>
     
     <!-- Custom Fonts per stile cartoon -->
-    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Bangers&family=Comic+Neue:wght@400;700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Bubblegum+Sans&family=Nunito:wght@400;700&family=Boogaloo&family=Patrick+Hand&family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
     
     <!-- Custom Styles -->
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Bangers&family=Comic+Neue:wght@400;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Bubblegum+Sans&family=Nunito:wght@400;700&family=Boogaloo&family=Patrick+Hand&display=swap');
         
         html {
             scroll-behavior: smooth;
@@ -78,8 +80,8 @@
         }
         
         body {
-            font-family: 'Comic Neue', cursive;
-            background-color: #4C1D95;
+            font-family: 'Nunito', sans-serif;
+            background-color: #312E81;
             background-image: url('INSERISCI-URL-IMMAGINE-SFONDO.jpg');
             background-size: cover;
             background-repeat: no-repeat;
@@ -98,9 +100,13 @@
         }
         
         h1, h2, h3, .pixel-font {
-            font-family: 'Bangers', cursive;
+            font-family: 'Fredoka One', cursive;
             letter-spacing: 2px;
-            text-shadow: 3px 3px 0px #4C1D95;
+            text-shadow: 3px 3px 0px #4338CA;
+        }
+        
+        p, li, a, button, input, label, span {
+            font-family: 'Patrick Hand', cursive;
         }
         
         .btn {
@@ -108,6 +114,7 @@
             transform-origin: center;
             border: 3px solid white;
             box-shadow: 0.35rem 0.35rem 0 rgba(0,0,0,0.4);
+            font-family: 'Bubblegum Sans', cursive;
         }
         
         .btn:hover {
@@ -241,7 +248,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: rgba(76, 29, 149, 0.7);
+            background: rgba(51, 44, 129, 0.7); /* Aggiornato con frogDark */
             z-index: 1;
         }
         
@@ -264,7 +271,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: rgba(76, 29, 149, 0.8);
+            background: rgba(67, 56, 202, 0.8); /* Aggiornato con frogIndigo */
             z-index: 1;
         }
         
@@ -287,7 +294,257 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: rgba(76, 29, 149, 0.8);
+            background: rgba(67, 56, 202, 0.8); /* Aggiornato con frogIndigo */
+            z-index: 1;
+        }
+        
+        #tokenomics > * {
+            position: relative;
+            z-index: 2;
+        }
+        
+        /* Elementi cartoon per cards */
+        .cartoon-card {
+            border: 4px solid white;
+            border-radius: 1.5rem;
+            box-shadow: 0.5rem 0.5rem 0 rgba(0,0,0,0.4);
+            transform: rotate(-1deg);
+            transition: all 0.3s ease;
+            position: relative;
+            background-image: linear-gradient(135deg, rgba(255,255,255,0.1) 25%, transparent 25%, 
+                                transparent 50%, rgba(255,255,255,0.1) 50%, 
+                                rgba(255,255,255,0.1) 75%, transparent 75%, transparent);
+            background-size: 30px 30px;
+        }
+        
+        .cartoon-card::before {
+            content: "";
+            position: absolute;
+            top: -8px;
+            left: -8px;
+            right: -8px;
+            bottom: -8px;
+            border: 2px dashed #FBBF24;
+            border-radius: 2rem;
+            z-index: -1;
+            pointer-events: none;
+        }
+        
+        .cartoon-card:hover {
+            transform: rotate(1deg) scale(1.02);
+            box-shadow: 0.65rem 0.65rem 0 rgba(0,0,0,0.3);
+        }
+        
+        /* Bubble speech per disclaimer */
+        .speech-bubble {
+            position: relative;
+            background: #6B46C1; /* Aggiornato con frogPurple */
+            border-radius: 1.5rem;
+            border: 4px solid white;
+            box-shadow: 0.5rem 0.5rem 0 rgba(0,0,0,0.4);
+            clip-path: polygon(
+                0% 0%, 
+                100% 0%, 
+                100% 85%, 
+                85% 85%, 
+                70% 100%, 
+                70% 85%, 
+                0% 85%
+            );
+            padding-bottom: 2rem;
+        }
+        
+        /* Stile per le card principali */
+        .fancy-box {
+            border: 4px solid white;
+            border-radius: 1.5rem;
+            position: relative;
+            box-shadow: 0.5rem 0.5rem 0 rgba(0,0,0,0.4);
+            overflow: hidden;
+        }
+        
+        .fancy-box::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: linear-gradient(90deg, #FBBF24, #EC4899, #34D399, #FBBF24);
+            background-size: 300% 100%;
+            animation: gradientBorder 3s ease infinite;
+        }
+        
+        @keyframes gradientBorder {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        /* Stile per riquadri a zig-zag */
+        .zigzag-box {
+            position: relative;
+            background: #4338CA;
+            padding: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .zigzag-box::before {
+            content: "";
+            position: absolute;
+            top: -15px;
+            left: 0;
+            right: 0;
+            height: 15px;
+            background: linear-gradient(-45deg, #4338CA 7px, transparent 0), 
+                        linear-gradient(45deg, #4338CA 7px, transparent 0);
+            background-position: left top;
+            background-repeat: repeat-x;
+            background-size: 15px 15px;
+        }
+        
+        .zigzag-box::after {
+            content: "";
+            position: absolute;
+            bottom: -15px;
+            left: 0;
+            right: 0;
+            height: 15px;
+            background: linear-gradient(-45deg, transparent 7px, #4338CA 0), 
+                        linear-gradient(45deg, transparent 7px, #4338CA 0);
+            background-position: left bottom;
+            background-repeat: repeat-x;
+            background-size: 15px 15px;
+        }
+        
+        /* Stile per le card con bordo animato */
+        .animated-border-box {
+            position: relative;
+            border-radius: 1.5rem;
+            background: #312E81;
+            z-index: 0;
+            padding: 1.5rem;
+            overflow: hidden;
+        }
+        
+        .animated-border-box::before {
+            content: '';
+            position: absolute;
+            z-index: -2;
+            left: -50%;
+            top: -50%;
+            width: 200%;
+            height: 200%;
+            background-color: #6B46C1;
+            background-repeat: no-repeat;
+            background-position: 0 0;
+            background-image: conic-gradient(transparent, #FBBF24, transparent 30%);
+            animation: rotate 4s linear infinite;
+        }
+        
+        .animated-border-box::after {
+            content: '';
+            position: absolute;
+            z-index: -1;
+            left: 6px;
+            top: 6px;
+            width: calc(100% - 12px);
+            height: calc(100% - 12px);
+            background: #312E81;
+            border-radius: 1.2rem;
+        }
+        
+        @keyframes rotate {
+            100% {
+                transform: rotate(1turn);
+            }
+        }
+        
+        .rotateY-180 {
+            transform: rotateY(180deg);
+        }
+        
+        /* Stile a pallini per le liste */
+        ul li {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 10px;
+        }
+        
+        ul li::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 12px;
+            height: 12px;
+            background-color: #FBBF24;
+            border-radius: 50%;
+        }
+        
+        /* Sezioni personalizzate con sfondi diversi */
+        #hero {
+            background-image: url('INSERISCI-URL-IMMAGINE-HERO.jpg');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+        
+        #hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(51, 44, 129, 0.7); /* Aggiornato con frogDark */
+            z-index: 1;
+        }
+        
+        #hero > * {
+            position: relative;
+            z-index: 2;
+        }
+        
+        #presale {
+            background-image: url('INSERISCI-URL-IMMAGINE-PRESALE.jpg');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+        
+        #presale::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(67, 56, 202, 0.8); /* Aggiornato con frogIndigo */
+            z-index: 1;
+        }
+        
+        #presale > * {
+            position: relative;
+            z-index: 2;
+        }
+        
+        #tokenomics {
+            background-image: url('INSERISCI-URL-IMMAGINE-TOKENOMICS.jpg');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+        
+        #tokenomics::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(67, 56, 202, 0.8); /* Aggiornato con frogIndigo */
             z-index: 1;
         }
         
@@ -312,7 +569,7 @@
         /* Bubble speech per disclaimer */
         .speech-bubble {
             position: relative;
-            background: #9333EA;
+            background: #6B46C1; /* Aggiornato con frogPurple */
             border-radius: 1.5rem;
             border: 4px solid white;
             box-shadow: 0.5rem 0.5rem 0 rgba(0,0,0,0.4);
@@ -337,7 +594,7 @@
             left: 44px;
             border-width: 16px 0 0 16px;
             border-style: solid;
-            border-color: #9333EA transparent transparent transparent;
+            border-color: #6B46C1 transparent transparent transparent; /* Aggiornato con frogPurple */
             display: block;
             width: 0;
         }
@@ -361,6 +618,131 @@
         @keyframes coinFlip {
             0% { transform: rotateY(0); }
             100% { transform: rotateY(720deg); }
+        }
+        
+        /* Elemento Ul rimosso - evita duplicazione */
+        
+        /* Sezioni personalizzate con sfondi diversi */
+        #hero {
+            background-image: url('INSERISCI-URL-IMMAGINE-HERO.jpg');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+        
+        /* Bubble button styles with 3D effect */
+        .bubble-btn {
+            background-color: #FBBF24;
+            color: #312E81;
+            border: 3px solid white;
+            border-radius: 999px;
+            padding: 0.75rem 1.5rem;
+            font-family: 'Bubblegum Sans', cursive;
+            font-size: 1.25rem;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 6px 0 #c47500, 0 8px 10px rgba(0,0,0,0.3);
+            text-shadow: 1px 1px 0 rgba(0,0,0,0.2);
+            overflow: hidden;
+        }
+        
+        .bubble-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 50%;
+            background: rgba(255,255,255,0.2);
+            border-radius: 999px 999px 0 0;
+            pointer-events: none;
+        }
+        
+        .bubble-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 9px 0 #c47500, 0 12px 15px rgba(0,0,0,0.3);
+        }
+        
+        .bubble-btn:active {
+            transform: translateY(3px);
+            box-shadow: 0 3px 0 #c47500, 0 4px 5px rgba(0,0,0,0.3);
+        }
+        
+        /* Jelly button */
+        .jelly-btn {
+            background-color: #34D399;
+            color: white;
+            border: none;
+            border-radius: 12px;
+            padding: 0.75rem 1.5rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            position: relative;
+            transition: all 0.2s;
+            box-shadow: 0 4px 0 #0f9b6c;
+            cursor: pointer;
+            overflow: hidden;
+        }
+        
+        .jelly-btn:hover {
+            animation: jelly 0.5s;
+        }
+        
+        @keyframes jelly {
+            0%, 100% { transform: scale(1, 1); }
+            25% { transform: scale(1.1, 0.9); }
+            50% { transform: scale(0.9, 1.1); }
+            75% { transform: scale(1.05, 0.95); }
+        }
+        
+        .jelly-btn:active {
+            top: 4px;
+            box-shadow: 0 0 0 #0f9b6c;
+        }
+        
+        /* Rainbow button */
+        .rainbow-btn {
+            background: linear-gradient(90deg, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #8b00ff, #ff0000);
+            background-size: 400% 400%;
+            animation: rainbow 3s ease infinite;
+            color: white;
+            font-weight: bold;
+            border: none;
+            border-radius: 8px;
+            padding: 0.75rem 1.5rem;
+            position: relative;
+            z-index: 1;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+        }
+        
+        .rainbow-btn::before {
+            content: '';
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            right: 2px;
+            bottom: 2px;
+            background: #312E81;
+            border-radius: 6px;
+            z-index: -1;
+        }
+        
+        @keyframes rainbow {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        .rainbow-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 10px rgba(0,0,0,0.3);
+        }
+        
+        .rainbow-btn:active {
+            transform: translateY(0);
+            box-shadow: 0 2px 3px rgba(0,0,0,0.3);
         }
     </style>
     
@@ -426,16 +808,47 @@
     </nav>
 
     <!-- Hero Section -->
-    <section id="hero" class="relative">
-        <div class="container mx-auto px-4 text-center">
-            <!-- INSERISCI QUI L'URL DEL LOGO -->
-            <img src="INSERISCI-URL-LOGO.png" alt="FROGGLE Logo" class="w-64 h-64 mx-auto mb-8 jump-animation" />
-            <h1 class="text-5xl md:text-7xl text-frogYellow mb-8">$FROGGLE</h1>
-            <p class="text-2xl mb-8 text-white">The Frog Prince of Solana</p>
-            <div class="flex flex-col md:flex-row justify-center gap-6">
-                <a href="#presale" class="bg-frogYellow hover:bg-frogPink text-frogIndigo px-8 py-4 rounded-cartoon font-bold text-xl btn">JUMP IN!</a>
-                <a href="#tokenomics" class="bg-frogPurple border-4 border-white text-white hover:bg-frogPink px-8 py-4 rounded-cartoon font-bold text-xl btn">TOKENOMICS</a>
+    <section class="bg-gradient-to-r from-purple-900 to-indigo-900 text-white py-20 px-4" style="background-image: url('sfondo1.png'); background-size: cover; background-position: center; position: relative;">
+        <!-- Overlay scuro per migliorare la leggibilità del testo -->
+        <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background-color: rgba(76, 29, 149, 0.7);"></div>
+        
+        <div class="container mx-auto text-center relative z-10">
+            <h1 class="text-5xl md:text-6xl font-bold mb-4">$FROGGLE</h1>
+            <p class="text-xl md:text-2xl mb-8">La moneta meme numero 1 sulla blockchain Solana</p>
+            
+            <!-- Wallet Connection -->
+            <div class="mb-8 p-6 fancy-box max-w-md mx-auto" style="background-color: rgba(107, 70, 193, 0.8);">
+                <h2 class="text-2xl font-bold mb-4">Connetti il tuo Wallet</h2>
+                
+                <div id="walletNotConnected">
+                    <button id="connectWalletBtn" class="bubble-btn">
+                        Connetti Wallet
+                    </button>
+                </div>
+                
+                <div id="walletConnected" class="hidden">
+                    <div class="flex justify-between items-center mb-4">
+                        <div>
+                            <span class="font-bold">Indirizzo:</span>
+                            <span id="walletAddress" class="ml-2 font-mono bg-purple-900 px-2 py-1 rounded">...</span>
+                        </div>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <div>
+                            <span class="font-bold">SOL:</span>
+                            <span id="walletBalance" class="ml-2 font-mono bg-purple-900 px-2 py-1 rounded">...</span>
+                        </div>
+                        <div>
+                            <span class="font-bold">FROGGLE:</span>
+                            <span id="tokenBalance" class="ml-2 font-mono bg-purple-900 px-2 py-1 rounded">0</span>
+                        </div>
+                    </div>
+                </div>
             </div>
+            
+            <a href="#presale" class="bubble-btn">
+                Partecipa al Presale
+            </a>
         </div>
     </section>
 
@@ -465,7 +878,7 @@
             </div>
             
             <!-- Buy Widget -->
-            <div class="max-w-md mx-auto cartoon-card bg-frogIndigo border-4 border-white overflow-hidden">
+            <div class="max-w-md mx-auto animated-border-box">
                 <div class="p-8">
                     <h3 class="text-2xl mb-8 text-frogYellow text-center">Buy $FROGGLE Tokens</h3>
                     
@@ -479,16 +892,16 @@
                         <label class="block text-frogYellow mb-2 text-xl">Amount (SOL)</label>
                         <input type="number" id="solAmount" min="0.05" step="0.01" placeholder="Enter SOL amount" class="w-full bg-frogIndigo border-3 border-white text-white py-3 px-4 rounded-xl">
                         <div class="flex justify-between mt-4">
-                            <button data-amount="0.1" class="amount-btn px-3 py-2 bg-frogPurple border-2 border-white text-white rounded-lg hover:bg-frogPink">0.1</button>
-                            <button data-amount="0.5" class="amount-btn px-3 py-2 bg-frogPurple border-2 border-white text-white rounded-lg hover:bg-frogPink">0.5</button>
-                            <button data-amount="1" class="amount-btn px-3 py-2 bg-frogPurple border-2 border-white text-white rounded-lg hover:bg-frogPink">1</button>
-                            <button data-amount="2" class="amount-btn px-3 py-2 bg-frogPurple border-2 border-white text-white rounded-lg hover:bg-frogPink">2</button>
-                            <button data-amount="5" class="amount-btn px-3 py-2 bg-frogPurple border-2 border-white text-white rounded-lg hover:bg-frogPink">5</button>
+                            <button data-amount="0.1" class="amount-btn jelly-btn">0.1</button>
+                            <button data-amount="0.5" class="amount-btn jelly-btn">0.5</button>
+                            <button data-amount="1" class="amount-btn jelly-btn">1</button>
+                            <button data-amount="2" class="amount-btn jelly-btn">2</button>
+                            <button data-amount="5" class="amount-btn jelly-btn">5</button>
                         </div>
                     </div>
                     
                     <!-- Price Calculation -->
-                    <div class="mb-8 p-6 bg-frogPurple bg-opacity-50 rounded-xl border-2 border-white">
+                    <div class="mb-8 p-6 zigzag-box rounded-xl border-2 border-white">
                         <div class="flex justify-between mb-3 text-lg">
                             <span class="text-white">Price per FROGGLE:</span>
                             <span class="text-frogYellow font-bold">0.001 SOL</span>
@@ -510,7 +923,7 @@
                     </div>
                     
                     <!-- Buy Button -->
-                    <button id="buyButton" class="w-full bg-frogYellow text-frogIndigo font-bold py-4 px-6 rounded-cartoon text-xl btn" disabled>
+                    <button id="buyButton" class="w-full rainbow-btn" disabled>
                         BUY $FROGGLE
                     </button>
                     
@@ -533,22 +946,22 @@
             <p class="text-white mb-4">Transparency is important to us. Here's how the presale funds are managed:</p>
             
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-4">
-                <div class="bg-frogIndigo bg-opacity-40 p-4 rounded-lg border-2 border-white">
+                <div class="fancy-box bg-frogIndigo bg-opacity-40 p-4">
                     <h4 class="text-frogYellow font-bold mb-2">During Presale</h4>
                     <p class="text-white text-sm mb-2">All SOL from purchases is sent to a secure escrow smart contract:</p>
                     <div class="bg-frogIndigo p-2 rounded overflow-hidden mb-2">
-                        <code class="text-xs text-frogGreen break-all">
+                        <code class="text-xs text-frogAccent break-all">
                             9YxvANCGh8kpnD5RL48CpzA5QAzVPuYeaLbYqdEmaJc3
                         </code>
                     </div>
                     <p class="text-white text-sm">The funds are locked until the presale ends on June 1, 2025.</p>
                 </div>
                 
-                <div class="bg-frogIndigo bg-opacity-40 p-4 rounded-lg border-2 border-white">
+                <div class="fancy-box bg-frogIndigo bg-opacity-40 p-4">
                     <h4 class="text-frogYellow font-bold mb-2">After Presale</h4>
                     <p class="text-white text-sm mb-4">The collected SOL will be allocated as follows:</p>
                     <div class="flex items-center mb-2">
-                        <div class="w-4 h-4 bg-frogGreen mr-2"></div>
+                        <div class="w-4 h-4 bg-frogAccent mr-2"></div>
                         <span class="text-white text-sm">60% - Liquidity Provision</span>
                     </div>
                     <div class="flex items-center">
@@ -591,7 +1004,7 @@
                             <img src="INSERISCI-URL-LOGO.png" alt="Froggle" class="w-32 h-32 mb-6 jump-animation">
                             <h3 class="text-frogYellow text-2xl mb-6 pixel-font">HOP TO THE MOON!</h3>
                             <p class="text-white text-center mb-6 max-w-xs">Help Froggle jump from platform to platform and collect tokens on the way to the moon!</p>
-                            <button id="startGameBtn" class="bg-frogYellow text-frogIndigo px-8 py-3 rounded-cartoon font-bold text-xl btn">PLAY NOW!</button>
+                            <button id="startGameBtn" class="bubble-btn">PLAY NOW!</button>
                         </div>
                         
                         <!-- Game Overlay (End) -->
@@ -599,7 +1012,7 @@
                             <h3 class="text-frogYellow text-2xl mb-4 pixel-font">GAME OVER!</h3>
                             <p class="text-white text-xl mb-2">Your Score: <span id="finalScore" class="text-frogYellow font-bold">0</span></p>
                             <p class="text-white text-xl mb-6">Highest: <span id="highScore" class="text-frogYellow font-bold">0</span></p>
-                            <button id="restartGameBtn" class="bg-frogYellow text-frogIndigo px-6 py-2 rounded-cartoon font-bold text-lg btn mb-4">PLAY AGAIN</button>
+                            <button id="restartGameBtn" class="jelly-btn mb-4">PLAY AGAIN</button>
                             <div class="text-center mt-4">
                                 <p class="text-frogPink text-lg mb-2">Tip: For every 1000 points you earn:</p>
                                 <p class="text-white text-md">Get 5% bonus in the presale!</p>
@@ -621,7 +1034,7 @@
                     <!-- Leaderboard -->
                     <div class="mt-6">
                         <h3 class="text-frogYellow text-xl mb-4 text-center">TOP HOPPERS</h3>
-                        <div class="bg-frogPurple bg-opacity-50 rounded-xl border-2 border-white p-4">
+                        <div class="zigzag-box rounded-xl border-2 border-white p-4">
                             <div class="grid grid-cols-3 gap-2 mb-2 text-center">
                                 <div class="font-bold text-frogYellow">Rank</div>
                                 <div class="font-bold text-frogYellow">Player</div>
@@ -1081,7 +1494,7 @@
     <!-- Scripts -->
     <script>
         // Configuration Constants
-        const PROGRAM_ID_DEVNET = "<PROGRAM_ID_DEVNET>";
+        const PROGRAM_ID_DEVNET = "Hvw1fSv47Xfg6w1xZVrayw3xopxjEvQCV8gq8LosuYhv";
         const TOKEN_MINT = "5Y3FEjkBzDLyrTq4y895B7DhFVVek9tc2EWjD2HLBrTv";
         const ESCROW_ACCOUNT = "9YxvANCGh8kpnD5RL48CpzA5QAzVPuYeaLbYqdEmaJc3";
         const PRICE_LAMPORTS = 1_000_000; // 0.001 SOL per FROGGLE
@@ -2767,6 +3180,287 @@
             keys.spaceReleased = true;
         });
     });
+    </script>
+
+    <!-- Solana Web3.js -->
+    <script src="https://unpkg.com/@solana/web3.js@latest/lib/index.iife.js"></script>
+    
+    <!-- FROGGLE Presale Client -->
+    <script src="js/presale-client.js"></script>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Inizializza la connessione Solana
+            const connection = new solanaWeb3.Connection(
+                "https://api.devnet.solana.com",
+                'confirmed'
+            );
+            
+            // Indirizzi del programma e token (sostituisci con quelli effettivi dopo il deploy)
+            const programId = new solanaWeb3.PublicKey("72GwxfPbBNW92VLqnbGFJEjXXttbqzEddARViUK5PTY2");
+            const tokenMint = new solanaWeb3.PublicKey("5Y3FEjkBzDLyrTq4y895B7DhFVVek9tc2EWjD2HLBrTv");
+            const escrowAccount = new solanaWeb3.PublicKey("5Y3FEjkBzDLyrTq4y895B7DhFVVek9tc2EWjD2HLBrTv"); // Esempio, da sostituire
+            
+            // Riferimento globale al client
+            let presaleClient = null;
+            
+            // Riferimento al wallet
+            let wallet = null;
+            
+            // Elementi UI
+            const connectButton = document.getElementById('connectWalletBtn');
+            const buyButton = document.getElementById('buyTokensBtn');
+            const claimButton = document.getElementById('claimTokensBtn');
+            const amountInput = document.getElementById('tokenAmount');
+            const statusElement = document.getElementById('statusMessage');
+            
+            // Impostazione iniziale
+            updatePresaleInfo();
+            setInterval(updatePresaleInfo, 30000); // Aggiorna ogni 30 secondi
+            
+            // Connessione wallet
+            connectButton.addEventListener('click', async function() {
+                try {
+                    if (!window.solana) {
+                        showStatus('Per favore installa Phantom Wallet', 'error');
+                        return;
+                    }
+                    
+                    // Richiedi connessione
+                    wallet = window.solana;
+                    await wallet.connect();
+                    
+                    // Inizializza il client con il wallet
+                    presaleClient = new FrogglePresaleClient(
+                        connection, 
+                        wallet,
+                        programId,
+                        tokenMint,
+                        escrowAccount
+                    );
+                    
+                    await presaleClient.initialize();
+                    
+                    // Aggiorna UI
+                    connectButton.textContent = 'Wallet Connesso';
+                    connectButton.disabled = true;
+                    buyButton.disabled = false;
+                    
+                    // Mostra indirizzo
+                    const walletAddress = wallet.publicKey.toString();
+                    document.getElementById('walletAddress').textContent = 
+                        walletAddress.substring(0, 4) + '...' + walletAddress.substring(walletAddress.length - 4);
+                    
+                    // Aggiorna UI con il saldo
+                    await updateWalletBalance();
+                    await updateTokenBalance();
+                    
+                    showStatus('Wallet connesso con successo!', 'success');
+                } catch (error) {
+                    console.error('Errore durante la connessione al wallet:', error);
+                    showStatus('Errore durante la connessione al wallet', 'error');
+                }
+            });
+            
+            // Acquisto token
+            buyButton.addEventListener('click', async function() {
+                if (!presaleClient) {
+                    showStatus('Connetti prima il wallet', 'error');
+                    return;
+                }
+                
+                const amount = parseInt(amountInput.value);
+                if (isNaN(amount) || amount <= 0) {
+                    showStatus('Inserisci un importo valido', 'error');
+                    return;
+                }
+                
+                showStatus('Elaborazione acquisto...', 'info');
+                
+                try {
+                    const result = await presaleClient.buyTokens(amount);
+                    if (result.success) {
+                        showStatus(result.message, 'success');
+                        
+                        // Mostra link all'explorer
+                        const explorerLink = document.createElement('a');
+                        explorerLink.href = `https://explorer.solana.com/tx/${result.signature}?cluster=devnet`;
+                        explorerLink.textContent = 'Visualizza transazione';
+                        explorerLink.target = '_blank';
+                        explorerLink.className = 'text-purple-400 underline';
+                        
+                        statusElement.appendChild(document.createElement('br'));
+                        statusElement.appendChild(explorerLink);
+                        
+                        // Aggiorna saldi
+                        await updateWalletBalance();
+                        await updateTokenBalance();
+                        await updatePresaleInfo();
+                    } else {
+                        showStatus(result.message, 'error');
+                    }
+                } catch (error) {
+                    console.error('Errore durante l\'acquisto:', error);
+                    showStatus('Errore durante l\'acquisto: ' + error.message, 'error');
+                }
+            });
+            
+            // Claim token
+            claimButton.addEventListener('click', async function() {
+                if (!presaleClient) {
+                    showStatus('Connetti prima il wallet', 'error');
+                    return;
+                }
+                
+                showStatus('Elaborazione claim...', 'info');
+                
+                try {
+                    const result = await presaleClient.claimTokens();
+                    if (result.success) {
+                        showStatus(result.message, 'success');
+                        
+                        // Mostra link all'explorer
+                        const explorerLink = document.createElement('a');
+                        explorerLink.href = `https://explorer.solana.com/tx/${result.signature}?cluster=devnet`;
+                        explorerLink.textContent = 'Visualizza transazione';
+                        explorerLink.target = '_blank';
+                        explorerLink.className = 'text-purple-400 underline';
+                        
+                        statusElement.appendChild(document.createElement('br'));
+                        statusElement.appendChild(explorerLink);
+                        
+                        // Aggiorna saldi
+                        await updateTokenBalance();
+                    } else {
+                        showStatus(result.message, 'error');
+                    }
+                } catch (error) {
+                    console.error('Errore durante il claim:', error);
+                    showStatus('Errore durante il claim: ' + error.message, 'error');
+                }
+            });
+            
+            // Aggiorna saldo SOL
+            async function updateWalletBalance() {
+                if (!wallet || !wallet.publicKey) return;
+                
+                try {
+                    const balance = await connection.getBalance(wallet.publicKey);
+                    const solBalance = balance / solanaWeb3.LAMPORTS_PER_SOL;
+                    document.getElementById('walletBalance').textContent = solBalance.toFixed(4) + ' SOL';
+                } catch (error) {
+                    console.error('Errore nel recupero del saldo SOL:', error);
+                    document.getElementById('walletBalance').textContent = 'Errore';
+                }
+            }
+            
+            // Aggiorna saldo token FROGGLE
+            async function updateTokenBalance() {
+                if (!presaleClient) return;
+                
+                try {
+                    const balance = await presaleClient.getTokenBalance();
+                    document.getElementById('tokenBalance').textContent = balance.toLocaleString() + ' FROGGLE';
+                } catch (error) {
+                    console.error('Errore nel recupero del saldo token:', error);
+                    document.getElementById('tokenBalance').textContent = 'Errore';
+                }
+            }
+            
+            // Aggiorna info presale
+            async function updatePresaleInfo() {
+                try {
+                    // Crea un client temporaneo se non è stato inizializzato
+                    const client = presaleClient || new FrogglePresaleClient(
+                        connection, 
+                        null,
+                        programId,
+                        tokenMint,
+                        escrowAccount
+                    );
+                    
+                    if (!presaleClient) {
+                        await client.initialize();
+                    }
+                    
+                    const info = await client.getPresaleInfo();
+                    
+                    // Aggiorna UI con le informazioni presale
+                    document.getElementById('presalePriceValue').textContent = info.price + ' SOL';
+                    document.getElementById('presaleDiscountValue').textContent = info.discount + '%';
+                    document.getElementById('presaleCapValue').textContent = info.hardCap.toLocaleString() + ' FROGGLE';
+                    document.getElementById('presaleSoldValue').textContent = info.totalSold.toLocaleString() + ' FROGGLE';
+                    
+                    // Aggiorna barra di avanzamento
+                    const progressBar = document.getElementById('presaleProgress');
+                    progressBar.style.width = info.percentComplete + '%';
+                    document.getElementById('presaleProgressText').textContent = info.percentComplete.toFixed(1) + '%';
+                    
+                    // Stato presale
+                    const statusIndicator = document.getElementById('presaleStatus');
+                    if (info.isActive) {
+                        statusIndicator.textContent = 'ATTIVO';
+                        statusIndicator.className = 'bg-green-500 text-white px-2 py-1 rounded';
+                        buyButton.disabled = !wallet;
+                        claimButton.disabled = true;
+                    } else {
+                        const now = Math.floor(Date.now() / 1000);
+                        if (now < info.startDate.getTime() / 1000) {
+                            statusIndicator.textContent = 'IN ATTESA';
+                            statusIndicator.className = 'bg-yellow-500 text-white px-2 py-1 rounded';
+                            buyButton.disabled = true;
+                            claimButton.disabled = true;
+                        } else {
+                            statusIndicator.textContent = 'TERMINATO';
+                            statusIndicator.className = 'bg-red-500 text-white px-2 py-1 rounded';
+                            buyButton.disabled = true;
+                            claimButton.disabled = !wallet;
+                        }
+                    }
+                    
+                    // Date
+                    document.getElementById('presaleStartDate').textContent = formatDate(info.startDate);
+                    document.getElementById('presaleEndDate').textContent = formatDate(info.endDate);
+                    
+                    // Timer se attivo
+                    if (info.isActive && info.remainingTime > 0) {
+                        const days = Math.floor(info.remainingTime / (60 * 60 * 24));
+                        const hours = Math.floor((info.remainingTime % (60 * 60 * 24)) / (60 * 60));
+                        const minutes = Math.floor((info.remainingTime % (60 * 60)) / 60);
+                        
+                        document.getElementById('presaleTimer').textContent = 
+                            `${days}d ${hours}h ${minutes}m rimanenti`;
+                    } else {
+                        document.getElementById('presaleTimer').textContent = '';
+                    }
+                    
+                } catch (error) {
+                    console.error('Errore nel recupero info presale:', error);
+                }
+            }
+            
+            // Formatta data
+            function formatDate(date) {
+                return date.toLocaleDateString() + ' ' + 
+                       date.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+            }
+            
+            // Mostra messaggio di stato
+            function showStatus(message, type) {
+                statusElement.textContent = message;
+                statusElement.className = 'mt-4 p-3 rounded';
+                
+                if (type === 'error') {
+                    statusElement.classList.add('bg-red-500', 'text-white');
+                } else if (type === 'success') {
+                    statusElement.classList.add('bg-green-500', 'text-white');
+                } else {
+                    statusElement.classList.add('bg-purple-600', 'text-white');
+                }
+                
+                statusElement.classList.remove('hidden');
+            }
+        });
     </script>
 </body>
 </html> 
